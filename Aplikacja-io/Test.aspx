@@ -18,7 +18,7 @@
 			<div class="row full-height justify-content-center">
 				<div class="col-12 text-center align-self-center py-5">
 					<div class="section pb-5 pt-5 pt-sm-2 text-center">
-						<h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
+						<h6 class="mb-0 pb-3"><span>Zaloguj </span><span>Zarejestruj</span></h6>
 			          	<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
 			          	<label for="reg-log"></label>
 						<div class="card-3d-wrap mx-auto">
@@ -26,7 +26,7 @@
 								<div class="card-front">
 									<div class="center-wrap">
 										<div class="section text-center">
-											<h4 class="mb-4 pb-3">Log In</h4>
+											<h4 class="mb-4 pb-3">Logowanie</h4>
 											<div class="form-group">
 												<asp:TextBox ID="TextBoxLogin" runat="server" placeholder="Login" CssClass="form-style" ></asp:TextBox>
 												
@@ -36,18 +36,18 @@
 												
 											</div>
 											
-											<asp:Button ID="ButtonLog" runat="server" Text="Login" OnClick="ButtonLog_Click" class="btn mt-4"/>
-                      <p class="mb-0 mt-4 text-center"><a class="link">Forgot your password?</a></p>
+											<asp:Button ID="ButtonLog" runat="server" Text="Zaloguj" OnClick="ButtonLog_Click" class="btn mt-4"/>
+                      
 				      					</div>
 			      					</div>
 			      				</div>
 								<div class="card-back">
 									<div class="center-wrap">
 										<div class="section text-center">
-											<h4 class="mb-3 pb-3">Sign Up</h4>
+											<h4 class="mb-3 pb-3">Rejstracja</h4>
 											<div class="form-group">
 												
-												<asp:TextBox ID="TextBoxRImie" runat="server" CssClass="form-style" placeholder="Name"></asp:TextBox>
+												<asp:TextBox ID="TextBoxRImie" runat="server" CssClass="form-style" placeholder="Imię"></asp:TextBox>
 												
 											</div>	
 											<div class="form-group mt-2">
@@ -56,16 +56,16 @@
 											</div>	
 										 <div class="form-group mt-2">
 												
-												 <asp:TextBox ID="TextBoxREmail" runat="server" CssClass="form-style" placeholder="eMail"></asp:TextBox>
+												 <asp:TextBox ID="TextBoxREmail" runat="server" CssClass="form-style" placeholder="e-mail"></asp:TextBox>
 												
 											</div>
 											<div class="form-group mt-2">
 												
-												<asp:TextBox ID="TextBoxRHaslo" runat="server" TextMode="Password" placeholder="Password" CssClass="form-style"></asp:TextBox>
+												<asp:TextBox ID="TextBoxRHaslo" runat="server" TextMode="Password" placeholder="Hasło" CssClass="form-style"></asp:TextBox>
 												
 											</div>
 										
-											<asp:Button ID="ButtonReg" runat="server" Text="Register" OnClick="ButtonReg_Click" class="btn mt-4"/>
+											<asp:Button ID="ButtonReg" runat="server" Text="Zarejestruj" OnClick="ButtonReg_Click" class="btn mt-4"/>
 				      					</div>
 			      					</div>
 			      				</div>
