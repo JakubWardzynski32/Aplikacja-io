@@ -33,6 +33,12 @@ namespace Aplikacja_io
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertSkladnik(Skladnik instance);
+    partial void UpdateSkladnik(Skladnik instance);
+    partial void DeleteSkladnik(Skladnik instance);
+    partial void InsertPrzepis(Przepis instance);
+    partial void UpdatePrzepis(Przepis instance);
+    partial void DeletePrzepis(Przepis instance);
     #endregion
 		
 		public UsersDataContext(string connection) : 
@@ -64,6 +70,22 @@ namespace Aplikacja_io
 			get
 			{
 				return this.GetTable<User>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Skladnik> Skladnik
+		{
+			get
+			{
+				return this.GetTable<Skladnik>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Przepis> Przepis
+		{
+			get
+			{
+				return this.GetTable<Przepis>();
 			}
 		}
 	}
@@ -225,6 +247,226 @@ namespace Aplikacja_io
 					this._Haslo = value;
 					this.SendPropertyChanged("Haslo");
 					this.OnHasloChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Skladnik")]
+	public partial class Skladnik : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Opis;
+		
+		private string _Nazwa;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnOpisChanging(string value);
+    partial void OnOpisChanged();
+    partial void OnNazwaChanging(string value);
+    partial void OnNazwaChanged();
+    #endregion
+		
+		public Skladnik()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Opis", DbType="VarChar(50)")]
+		public string Opis
+		{
+			get
+			{
+				return this._Opis;
+			}
+			set
+			{
+				if ((this._Opis != value))
+				{
+					this.OnOpisChanging(value);
+					this.SendPropertyChanging();
+					this._Opis = value;
+					this.SendPropertyChanged("Opis");
+					this.OnOpisChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nazwa", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nazwa
+		{
+			get
+			{
+				return this._Nazwa;
+			}
+			set
+			{
+				if ((this._Nazwa != value))
+				{
+					this.OnNazwaChanging(value);
+					this.SendPropertyChanging();
+					this._Nazwa = value;
+					this.SendPropertyChanged("Nazwa");
+					this.OnNazwaChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Przepis")]
+	public partial class Przepis : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Nazwa;
+		
+		private string _Opis;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNazwaChanging(string value);
+    partial void OnNazwaChanged();
+    partial void OnOpisChanging(string value);
+    partial void OnOpisChanged();
+    #endregion
+		
+		public Przepis()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nazwa", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nazwa
+		{
+			get
+			{
+				return this._Nazwa;
+			}
+			set
+			{
+				if ((this._Nazwa != value))
+				{
+					this.OnNazwaChanging(value);
+					this.SendPropertyChanging();
+					this._Nazwa = value;
+					this.SendPropertyChanged("Nazwa");
+					this.OnNazwaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Opis", DbType="VarChar(50)")]
+		public string Opis
+		{
+			get
+			{
+				return this._Opis;
+			}
+			set
+			{
+				if ((this._Opis != value))
+				{
+					this.OnOpisChanging(value);
+					this.SendPropertyChanging();
+					this._Opis = value;
+					this.SendPropertyChanged("Opis");
+					this.OnOpisChanged();
 				}
 			}
 		}
