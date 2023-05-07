@@ -15,7 +15,15 @@ namespace Aplikacja_io
         {
             if (Session["login"] != "test")
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("Test.aspx");
+            }
+            Przepis p = new Przepis();
+            foreach(Przepis pp in Bz.Przepis)
+            {
+                if (pp.Id == 1)
+                {
+                    Label1.Text = pp.Nazwa;
+                }
             }
         }
     }

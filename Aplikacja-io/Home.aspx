@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
         <div>
             Nazwa <asp:TextBox ID="TextBoxNazwa" runat="server"></asp:TextBox>
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </div>
     </form>
 </body>
