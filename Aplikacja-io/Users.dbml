@@ -14,6 +14,7 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Opis" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Nazwa" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="PS_Skladnik" Member="PS" ThisKey="Id" OtherKey="Id_skladnika" Type="PS" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Przepis" Member="Przepis">
@@ -21,6 +22,16 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Nazwa" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Opis" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="PS_Przepis" Member="PS" ThisKey="Id" OtherKey="Id_przepisu" Type="PS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PS" Member="PS">
+    <Type Name="PS">
+      <Column Name="Ilosc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id_przepisu" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id_skladnika" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="PS_Skladnik" Member="Skladnik" ThisKey="Id_skladnika" OtherKey="Id" Type="Skladnik" />
+      <Association Name="PS_Przepis" Member="Przepis" ThisKey="Id_przepisu" OtherKey="Id" Type="Przepis" />
     </Type>
   </Table>
 </Database>

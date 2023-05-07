@@ -39,6 +39,9 @@ namespace Aplikacja_io
     partial void InsertPrzepis(Przepis instance);
     partial void UpdatePrzepis(Przepis instance);
     partial void DeletePrzepis(Przepis instance);
+    partial void InsertPS(PS instance);
+    partial void UpdatePS(PS instance);
+    partial void DeletePS(PS instance);
     #endregion
 		
 		public UsersDataContext(string connection) : 
@@ -86,6 +89,14 @@ namespace Aplikacja_io
 			get
 			{
 				return this.GetTable<Przepis>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PS> PS
+		{
+			get
+			{
+				return this.GetTable<PS>();
 			}
 		}
 	}
@@ -284,6 +295,8 @@ namespace Aplikacja_io
 		
 		private string _Nazwa;
 		
+		private EntityRef<PS> _PS;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -298,6 +311,7 @@ namespace Aplikacja_io
 		
 		public Skladnik()
 		{
+			this._PS = default(EntityRef<PS>);
 			OnCreated();
 		}
 		
@@ -312,6 +326,10 @@ namespace Aplikacja_io
 			{
 				if ((this._Id != value))
 				{
+					if (this._PS.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnIdChanging(value);
 					this.SendPropertyChanging();
 					this._Id = value;
@@ -357,6 +375,40 @@ namespace Aplikacja_io
 					this._Nazwa = value;
 					this.SendPropertyChanged("Nazwa");
 					this.OnNazwaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PS_Skladnik", Storage="_PS", ThisKey="Id", OtherKey="Id_skladnika", IsForeignKey=true)]
+		public PS PS
+		{
+			get
+			{
+				return this._PS.Entity;
+			}
+			set
+			{
+				PS previousValue = this._PS.Entity;
+				if (((previousValue != value) 
+							|| (this._PS.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PS.Entity = null;
+						previousValue.Skladnik.Remove(this);
+					}
+					this._PS.Entity = value;
+					if ((value != null))
+					{
+						value.Skladnik.Add(this);
+						this._Id = value.Id_skladnika;
+					}
+					else
+					{
+						this._Id = default(int);
+					}
+					this.SendPropertyChanged("PS");
 				}
 			}
 		}
@@ -394,6 +446,8 @@ namespace Aplikacja_io
 		
 		private string _Opis;
 		
+		private EntityRef<PS> _PS;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -408,6 +462,7 @@ namespace Aplikacja_io
 		
 		public Przepis()
 		{
+			this._PS = default(EntityRef<PS>);
 			OnCreated();
 		}
 		
@@ -422,6 +477,10 @@ namespace Aplikacja_io
 			{
 				if ((this._Id != value))
 				{
+					if (this._PS.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnIdChanging(value);
 					this.SendPropertyChanging();
 					this._Id = value;
@@ -471,6 +530,40 @@ namespace Aplikacja_io
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PS_Przepis", Storage="_PS", ThisKey="Id", OtherKey="Id_przepisu", IsForeignKey=true)]
+		public PS PS
+		{
+			get
+			{
+				return this._PS.Entity;
+			}
+			set
+			{
+				PS previousValue = this._PS.Entity;
+				if (((previousValue != value) 
+							|| (this._PS.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PS.Entity = null;
+						previousValue.Przepis.Remove(this);
+					}
+					this._PS.Entity = value;
+					if ((value != null))
+					{
+						value.Przepis.Add(this);
+						this._Id = value.Id_przepisu;
+					}
+					else
+					{
+						this._Id = default(int);
+					}
+					this.SendPropertyChanged("PS");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -489,6 +582,172 @@ namespace Aplikacja_io
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PS")]
+	public partial class PS : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Ilosc;
+		
+		private int _Id_przepisu;
+		
+		private int _Id_skladnika;
+		
+		private EntitySet<Skladnik> _Skladnik;
+		
+		private EntitySet<Przepis> _Przepis;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIloscChanging(int value);
+    partial void OnIloscChanged();
+    partial void OnId_przepisuChanging(int value);
+    partial void OnId_przepisuChanged();
+    partial void OnId_skladnikaChanging(int value);
+    partial void OnId_skladnikaChanged();
+    #endregion
+		
+		public PS()
+		{
+			this._Skladnik = new EntitySet<Skladnik>(new Action<Skladnik>(this.attach_Skladnik), new Action<Skladnik>(this.detach_Skladnik));
+			this._Przepis = new EntitySet<Przepis>(new Action<Przepis>(this.attach_Przepis), new Action<Przepis>(this.detach_Przepis));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ilosc", DbType="Int NOT NULL")]
+		public int Ilosc
+		{
+			get
+			{
+				return this._Ilosc;
+			}
+			set
+			{
+				if ((this._Ilosc != value))
+				{
+					this.OnIloscChanging(value);
+					this.SendPropertyChanging();
+					this._Ilosc = value;
+					this.SendPropertyChanged("Ilosc");
+					this.OnIloscChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_przepisu", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id_przepisu
+		{
+			get
+			{
+				return this._Id_przepisu;
+			}
+			set
+			{
+				if ((this._Id_przepisu != value))
+				{
+					this.OnId_przepisuChanging(value);
+					this.SendPropertyChanging();
+					this._Id_przepisu = value;
+					this.SendPropertyChanged("Id_przepisu");
+					this.OnId_przepisuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_skladnika", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id_skladnika
+		{
+			get
+			{
+				return this._Id_skladnika;
+			}
+			set
+			{
+				if ((this._Id_skladnika != value))
+				{
+					this.OnId_skladnikaChanging(value);
+					this.SendPropertyChanging();
+					this._Id_skladnika = value;
+					this.SendPropertyChanged("Id_skladnika");
+					this.OnId_skladnikaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PS_Skladnik", Storage="_Skladnik", ThisKey="Id_skladnika", OtherKey="Id")]
+		public EntitySet<Skladnik> Skladnik
+		{
+			get
+			{
+				return this._Skladnik;
+			}
+			set
+			{
+				this._Skladnik.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PS_Przepis", Storage="_Przepis", ThisKey="Id_przepisu", OtherKey="Id")]
+		public EntitySet<Przepis> Przepis
+		{
+			get
+			{
+				return this._Przepis;
+			}
+			set
+			{
+				this._Przepis.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Skladnik(Skladnik entity)
+		{
+			this.SendPropertyChanging();
+			entity.PS = this;
+		}
+		
+		private void detach_Skladnik(Skladnik entity)
+		{
+			this.SendPropertyChanging();
+			entity.PS = null;
+		}
+		
+		private void attach_Przepis(Przepis entity)
+		{
+			this.SendPropertyChanging();
+			entity.PS = this;
+		}
+		
+		private void detach_Przepis(Przepis entity)
+		{
+			this.SendPropertyChanging();
+			entity.PS = null;
 		}
 	}
 }
