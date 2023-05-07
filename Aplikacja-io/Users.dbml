@@ -28,8 +28,8 @@
   <Table Name="dbo.PS" Member="PS">
     <Type Name="PS">
       <Column Name="Ilosc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Id_przepisu" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Id_skladnika" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id_przepisu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id_skladnika" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="PS_Skladnik" Member="Skladnik" ThisKey="Id_skladnika" OtherKey="Id" Type="Skladnik" />
       <Association Name="PS_Przepis" Member="Przepis" ThisKey="Id_przepisu" OtherKey="Id" Type="Przepis" />
     </Type>
