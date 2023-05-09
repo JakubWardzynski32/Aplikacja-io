@@ -23,7 +23,7 @@
             
             <nav>
                 <ul>
-                    <li><a href="Test.aspx">Logowanie</a></li>
+                    <li><a href="Test.aspx">Logowanie fajnaie</a></li>
                     <li><a href="Test.aspx">Rejestracja</a></li>
                 </ul>
             </nav>
