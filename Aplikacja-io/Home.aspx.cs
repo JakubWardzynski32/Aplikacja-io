@@ -22,7 +22,7 @@ namespace Aplikacja_io
             {
                 if (pp.Id == 1)
                 {
-                    Label1.Text = pp.Nazwa;
+                    Label1.Text = "dziala";
                 }
             }
         }
