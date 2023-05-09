@@ -20,24 +20,24 @@
         <elementListCompartment Id="74ac95f6-c25c-4d09-a92b-b6c8d71a4487" absoluteBounds="7.39, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="afd00e87-7644-4d80-a45a-cbac40408ad1" absoluteBounds="5.125, 2.375, 2, 1.3862939453125">
+    <classShape Id="4038e628-7a8f-44a1-9caa-3cb307d9b259" absoluteBounds="5, 2.75, 2, 1.3862939453125">
       <DataClassMoniker Name="/UsersDataContext/PS" />
       <nestedChildShapes>
-        <elementListCompartment Id="24a8f523-4adc-4966-920e-279b2b30be8e" absoluteBounds="5.14, 2.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0b0c0846-819f-4b05-8c2a-4add27427dbe" absoluteBounds="5.015, 3.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.125 : 2.375); (4.75 : 1.8862939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/UsersDataContext/PS/PS_Skladnik" />
+    <associationConnector edgePoints="[(8.375 : 1.8862939453125); (8.375 : 3.44314697265625); (7 : 3.44314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/UsersDataContext/Przepis/Przepis_PS" />
       <nodes>
-        <classShapeMoniker Id="afd00e87-7644-4d80-a45a-cbac40408ad1" />
-        <classShapeMoniker Id="d3cdd34c-fc8d-41f5-96b6-0800443506ad" />
+        <classShapeMoniker Id="108a6234-1823-449e-a039-00f1d813c6ad" />
+        <classShapeMoniker Id="4038e628-7a8f-44a1-9caa-3cb307d9b259" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.125 : 2.375); (7.375 : 1.8862939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/UsersDataContext/PS/PS_Przepis" />
+    <associationConnector edgePoints="[(3.75 : 1.8862939453125); (3.75 : 3.44314697265625); (5 : 3.44314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/UsersDataContext/Skladnik/Skladnik_PS" />
       <nodes>
-        <classShapeMoniker Id="afd00e87-7644-4d80-a45a-cbac40408ad1" />
-        <classShapeMoniker Id="108a6234-1823-449e-a039-00f1d813c6ad" />
+        <classShapeMoniker Id="d3cdd34c-fc8d-41f5-96b6-0800443506ad" />
+        <classShapeMoniker Id="4038e628-7a8f-44a1-9caa-3cb307d9b259" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

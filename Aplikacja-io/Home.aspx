@@ -2,15 +2,32 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+<html lang="en">
+<head>
+  <title>Strona Głowna</title>
+
+<link rel="stylesheet" href="Styles.css">
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            Nazwa <asp:TextBox ID="TextBoxNazwa" runat="server"></asp:TextBox>
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <div class="section">
+            <div class="log-rej">
+                <ul>
+                    <li><a href="Test.aspx">Logowanie/Rejestracja</a></li>
+                </ul>
+             </div>
+            <div class="header">
+               Przepisy
+                <asp:Label ID="Label1" runat="server"></asp:Label>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="Test.aspx">Logowanie</a></li>
+                    <li><a href="Test.aspx">Rejestracja</a></li>
+                </ul>
+            </nav>
+            
         </div>
     </form>
 </body>

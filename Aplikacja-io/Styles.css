@@ -1,5 +1,7 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
+
+
 body {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
@@ -150,7 +152,6 @@ h6 span {
     width: 100%;
     font-weight: 500;
     border-radius: 4px;
-    font-size: 14px;
     line-height: 22px;
     letter-spacing: 0.5px;
     outline: none;
@@ -204,3 +205,45 @@ h6 span {
         color: #ffeba7;
         box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
     }
+
+
+.header {
+    font-size: 40px;
+    margin-left: 5%;
+    margin-bottom: 0;
+    width: 30%;
+}
+
+nav {
+    padding: 0;
+    left: 15%;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 4%;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #ffeba7;
+}
+
+    a:hover {
+        color: #fff;
+    }
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.log-rej {
+    float: right;
+    padding: 0;
+    width: 10%;
+    font-size: 10px;
+}
