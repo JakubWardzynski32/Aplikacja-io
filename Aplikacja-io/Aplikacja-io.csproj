@@ -74,7 +74,9 @@
     </Content>
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="Register.aspx" />
+    <Content Include="Recipe.aspx">
+      <BrowseToURL>~/Recipe.aspx</BrowseToURL>
+    </Content>
     <Content Include="Styles.css" />
     <Content Include="Test.aspx" />
     <Content Include="Web.config" />
@@ -95,12 +97,12 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
+    <Compile Include="Recipe.aspx.cs">
+      <DependentUpon>Recipe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
+    <Compile Include="Recipe.aspx.designer.cs">
+      <DependentUpon>Recipe.aspx</DependentUpon>
     </Compile>
     <Compile Include="Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>
