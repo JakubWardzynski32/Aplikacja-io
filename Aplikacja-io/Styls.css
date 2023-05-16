@@ -156,7 +156,7 @@ h6 span {
     letter-spacing: 0.5px;
     outline: none;
     color: #c4c3ca;
-    background-color: #1f2card-front029;
+    background-color: #2b2e38;
     border: none;
     -webkit-transition: all 200ms linear;
     transition: all 200ms linear;
@@ -257,7 +257,7 @@ nav ul li {
 }
 .dodajBut {
     position: absolute;
-    top: 90%;
+    top: 95%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -289,8 +289,9 @@ nav ul li {
     padding-right: 20px;
     padding-top: 13px;
     padding-bottom: 13px;
+    width:60%;
 }
-.container {
+.container2 {
     width: 60%;
     height: 100%;
     background-color: #2b2e38;
@@ -299,6 +300,7 @@ nav ul li {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 6px;
+    margin-bottom: 25%;
 }
 .skladniki{
     text-align:center;
