@@ -19,7 +19,7 @@
                             <asp:TextBox ID="TextBoxName" placeholder="Nazwa" runat="server" CssClass="form-style2"></asp:TextBox>
                         </div>
                          <div class="nazwaPrzepisu">
-                            <asp:TextBox ID="TextBoxNazwisko" placeholder="Opis" runat="server" CssClass="form-style2"></asp:TextBox>
+                            <asp:TextBox ID="TextBoxDescription" placeholder="Opis" runat="server" CssClass="form-style2"></asp:TextBox>
                         </div> 
                         <div class="nazwaPrzepisu">
                             <asp:TextBox ID="TextBoxLogin" placeholder="Ilość" runat="server" CssClass="form-style2"></asp:TextBox>
