@@ -4,9 +4,8 @@
 
 <html lang="en">
 <head>
-  <title>Strona Głowna</title>
-
-<link rel="stylesheet" href="Styles.css">
+     <title>Strona Głowna</title>
+     <link rel="stylesheet" href="Styl.css">
 </head>
 <body>
     <form id="form1" runat="server">
@@ -18,12 +17,11 @@
              </div>
             <div class="header">
                Przepisy
-                <asp:Label ID="Label1" runat="server"></asp:Label>
             </div>
             
             <nav>
                 <ul>
-                    <li><a href="Test.aspx">Logowanie</a></li>
+                    <li><a href="Recipe.aspx">Dodaj przepis</a></li>
                     <li><a href="Test.aspx">Rejestracja</a></li>
                 </ul>
             </nav>
