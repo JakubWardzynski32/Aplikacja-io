@@ -23,6 +23,7 @@
       <Column Name="Nazwa" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Opis" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="Przepis_PS" Member="PS" ThisKey="Id" OtherKey="Id_przepisu" Type="PS" />
+      <Association Name="Przepis_Zdjecia" Member="Zdjecia" ThisKey="Id" OtherKey="id_przepisu" Type="Zdjecia" />
     </Type>
   </Table>
   <Table Name="dbo.PS" Member="PS">
@@ -32,6 +33,14 @@
       <Column Name="Id_skladnika" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="Przepis_PS" Member="Przepis" ThisKey="Id_przepisu" OtherKey="Id" Type="Przepis" IsForeignKey="true" />
       <Association Name="Skladnik_PS" Member="Skladnik" ThisKey="Id_skladnika" OtherKey="Id" Type="Skladnik" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Zdjecia" Member="Zdjecia">
+    <Type Name="Zdjecia">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="zdjecie" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="id_przepisu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Przepis_Zdjecia" Member="Przepis" ThisKey="id_przepisu" OtherKey="Id" Type="Przepis" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

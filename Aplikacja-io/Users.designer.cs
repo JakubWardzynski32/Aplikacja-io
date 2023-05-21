@@ -42,6 +42,9 @@ namespace Aplikacja_io
     partial void InsertPS(PS instance);
     partial void UpdatePS(PS instance);
     partial void DeletePS(PS instance);
+    partial void InsertZdjecia(Zdjecia instance);
+    partial void UpdateZdjecia(Zdjecia instance);
+    partial void DeleteZdjecia(Zdjecia instance);
     #endregion
 		
 		public UsersDataContext(string connection) : 
@@ -97,6 +100,14 @@ namespace Aplikacja_io
 			get
 			{
 				return this.GetTable<PS>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Zdjecia> Zdjecia
+		{
+			get
+			{
+				return this.GetTable<Zdjecia>();
 			}
 		}
 	}
@@ -435,6 +446,8 @@ namespace Aplikacja_io
 		
 		private EntitySet<PS> _PS;
 		
+		private EntitySet<Zdjecia> _Zdjecia;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -450,6 +463,7 @@ namespace Aplikacja_io
 		public Przepis()
 		{
 			this._PS = new EntitySet<PS>(new Action<PS>(this.attach_PS), new Action<PS>(this.detach_PS));
+			this._Zdjecia = new EntitySet<Zdjecia>(new Action<Zdjecia>(this.attach_Zdjecia), new Action<Zdjecia>(this.detach_Zdjecia));
 			OnCreated();
 		}
 		
@@ -526,6 +540,19 @@ namespace Aplikacja_io
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Przepis_Zdjecia", Storage="_Zdjecia", ThisKey="Id", OtherKey="id_przepisu")]
+		public EntitySet<Zdjecia> Zdjecia
+		{
+			get
+			{
+				return this._Zdjecia;
+			}
+			set
+			{
+				this._Zdjecia.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -553,6 +580,18 @@ namespace Aplikacja_io
 		}
 		
 		private void detach_PS(PS entity)
+		{
+			this.SendPropertyChanging();
+			entity.Przepis = null;
+		}
+		
+		private void attach_Zdjecia(Zdjecia entity)
+		{
+			this.SendPropertyChanging();
+			entity.Przepis = this;
+		}
+		
+		private void detach_Zdjecia(Zdjecia entity)
 		{
 			this.SendPropertyChanging();
 			entity.Przepis = null;
@@ -726,6 +765,157 @@ namespace Aplikacja_io
 						this._Id_skladnika = default(int);
 					}
 					this.SendPropertyChanged("Skladnik");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Zdjecia")]
+	public partial class Zdjecia : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Data.Linq.Binary _zdjecie;
+		
+		private int _id_przepisu;
+		
+		private EntityRef<Przepis> _Przepis;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnzdjecieChanging(System.Data.Linq.Binary value);
+    partial void OnzdjecieChanged();
+    partial void Onid_przepisuChanging(int value);
+    partial void Onid_przepisuChanged();
+    #endregion
+		
+		public Zdjecia()
+		{
+			this._Przepis = default(EntityRef<Przepis>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_zdjecie", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary zdjecie
+		{
+			get
+			{
+				return this._zdjecie;
+			}
+			set
+			{
+				if ((this._zdjecie != value))
+				{
+					this.OnzdjecieChanging(value);
+					this.SendPropertyChanging();
+					this._zdjecie = value;
+					this.SendPropertyChanged("zdjecie");
+					this.OnzdjecieChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_przepisu", DbType="Int NOT NULL")]
+		public int id_przepisu
+		{
+			get
+			{
+				return this._id_przepisu;
+			}
+			set
+			{
+				if ((this._id_przepisu != value))
+				{
+					if (this._Przepis.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_przepisuChanging(value);
+					this.SendPropertyChanging();
+					this._id_przepisu = value;
+					this.SendPropertyChanged("id_przepisu");
+					this.Onid_przepisuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Przepis_Zdjecia", Storage="_Przepis", ThisKey="id_przepisu", OtherKey="Id", IsForeignKey=true)]
+		public Przepis Przepis
+		{
+			get
+			{
+				return this._Przepis.Entity;
+			}
+			set
+			{
+				Przepis previousValue = this._Przepis.Entity;
+				if (((previousValue != value) 
+							|| (this._Przepis.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Przepis.Entity = null;
+						previousValue.Zdjecia.Remove(this);
+					}
+					this._Przepis.Entity = value;
+					if ((value != null))
+					{
+						value.Zdjecia.Add(this);
+						this._id_przepisu = value.Id;
+					}
+					else
+					{
+						this._id_przepisu = default(int);
+					}
+					this.SendPropertyChanged("Przepis");
 				}
 			}
 		}
