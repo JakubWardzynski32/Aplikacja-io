@@ -27,6 +27,15 @@
                         <div class="skladniki">
                             Składniki: 
                         </div>
+
+                        <div class="dodaj_zdjecia">
+                            Dodaj zdjęcia: 
+                        </div>
+
+                        <div class="dodawanie">
+                            <asp:FileUpload ID="FileUploadControl" runat="server" CssClass="form-style2" />
+
+                        </div>
                         <div class="listaskladnikow">
                             <asp:CheckBoxList ID="CheckBoxListS" runat="server" CssClass="wygladchecka"></asp:CheckBoxList>
                         </div>

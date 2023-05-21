@@ -308,6 +308,10 @@ nav ul li {
     text-align: center;
 }
 
+.dodaj_zdjecia{
+    text-align: center;
+}
+
 .listaskladnikow {
     border-style: none;
     border-color: inherit;
