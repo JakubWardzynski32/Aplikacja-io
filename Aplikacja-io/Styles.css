@@ -46,13 +46,13 @@ h6 span {
     min-height: 100vh;
 }
 
-[type="checkbox"]:checked,
-[type="checkbox"]:not(:checked) {
+.checkbox1:checked,
+.checkbox1:not(:checked) {
     display: none;
 }
 
-.checkbox:checked + label,
-.checkbox:not(:checked) + label {
+.checkbox1:checked + label,
+.checkbox1:not(:checked) + label {
     position: relative;
     display: block;
     text-align: center;
@@ -65,8 +65,8 @@ h6 span {
     background-color: #ffeba7;
 }
 
-    .checkbox:checked + label:before,
-    .checkbox:not(:checked) + label:before {
+    .checkbox1:checked + label:before,
+    .checkbox1:not(:checked) + label:before {
         position: absolute;
         display: block;
         width: 36px;
@@ -85,7 +85,7 @@ h6 span {
         transition: all 0.5s ease;
     }
 
-    .checkbox:checked + label:before {
+   .checkbox1:checked + label:before {
         transform: translateX(44px) rotate(-270deg);
     }
 
@@ -123,7 +123,7 @@ h6 span {
     transform: rotateY(180deg);
 }
 
-.checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
+.checkbox1:checked ~ .card-3d-wrap .card-3d-wrapper {
     transform: rotateY(180deg);
 }
 
@@ -285,12 +285,13 @@ nav ul li {
     margin-left: 15%;
     margin-right: 14%;
     margin-bottom: 10px;
-    margin-top:2%;
+    margin-top: 2%;
     padding-right: 20px;
     padding-top: 13px;
     padding-bottom: 13px;
-    width:60%;
+    width: 60%;
 }
+
 .container2 {
     width: 60%;
     height: 100%;
@@ -302,6 +303,35 @@ nav ul li {
     border-radius: 6px;
     margin-bottom: 25%;
 }
-.skladniki{
-    text-align:center;
+
+.skladniki {
+    text-align: center;
 }
+
+.listaskladnikow {
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    padding-left: 10%;
+    font-weight: 500;
+    border-radius: 4px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
+    color: #c4c3ca;
+    background-color: #2b2e38;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+    box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
+    margin-left: 15%;
+    margin-right: 14%;
+    margin-bottom: 10px;
+    margin-top: 2%;
+    padding-right: 20px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    width: 60%;
+}
+
+
+    

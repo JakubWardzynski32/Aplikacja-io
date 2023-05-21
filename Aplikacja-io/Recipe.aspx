@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
       <title>Dodaj przepis</title>
-        <link rel="stylesheet" href="Styl.css">
+        <link rel="stylesheet" href="Styles.css">
 </head>
 <body>
     <form id="form1" runat="server">
@@ -14,7 +14,7 @@
                 <div class="header2">
                     Dodaj przepis
                 </div>
-                    <div class="container">
+                    <div class="container2">
                         <div class="nazwaPrzepisu">
                             <asp:TextBox ID="TextBoxName" placeholder="Nazwa" runat="server" CssClass="form-style2"></asp:TextBox>
                         </div>
@@ -27,11 +27,8 @@
                         <div class="skladniki">
                             Składniki: 
                         </div>
-                        <div>
-                            <asp:CheckBoxList ID="CheckBoxListS" runat="server" CssClass="form-style2"></asp:CheckBoxList>
-                        </div>
-                        <div class="nazwaPrzepisu">
-                            <asp:TextBox ID="TextBoxEmail" placeholder="Email" runat="server" CssClass="form-style2"></asp:TextBox>
+                        <div class="listaskladnikow">
+                            <asp:CheckBoxList ID="CheckBoxListS" runat="server" CssClass="wygladchecka"></asp:CheckBoxList>
                         </div>
         <div class="dodajBut">
              <asp:Button ID="ButtonZat" runat="server" Text="Dodaj" OnClick="ButtonZat_Click" class="btn mt-4"/>

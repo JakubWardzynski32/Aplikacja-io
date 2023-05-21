@@ -16,11 +16,13 @@ namespace Aplikacja_io
             //Przepis ps = new Przepis();
             //Skladnik sk = new Skladnik();
 
-           foreach( Skladnik skk in Bz.Skladnik)
+            if (!IsPostBack)
             {
-                CheckBoxListS.Items.Add(skk.Nazwa);
+                foreach (Skladnik skk in Bz.Skladnik)
+                {
+                    CheckBoxListS.Items.Add(skk.Nazwa);
+                }
             }
-
 
 
         }
@@ -38,7 +40,7 @@ namespace Aplikacja_io
 
 
             Bz.Przepis.InsertOnSubmit(p);
-            Bz.SubmitChanges();
+            //Bz.SubmitChanges();
 
             foreach (var nazwa in CheckBoxListS.Items)
             {
@@ -50,13 +52,13 @@ namespace Aplikacja_io
                         pS.Skladnik = sk;
                         pS.Przepis = p;
                         Bz.PS.InsertOnSubmit(pS);
-                        Bz.SubmitChanges();
+                        
 
 
                     }
                 }
             }
-            
+            Bz.SubmitChanges();
             //Bz.Skladnik.InsertOnSubmit(skladnik);
             //Bz.PS.InsertOnSubmit(pS);
 
