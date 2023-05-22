@@ -33,6 +33,7 @@
                         </div>
 
                         <div class="dodawanie">
+                           
                             <asp:FileUpload ID="FileUploadControl" runat="server" CssClass="form-style2" />
 
                         </div>
