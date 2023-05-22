@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
       <title>Dodaj przepis</title>
-        <link rel="stylesheet" href="Styles.css">
+        <link rel="stylesheet" href="Styless.css">
 </head>
 <body>
     <form id="form1" runat="server">
@@ -27,19 +27,21 @@
                         <div class="skladniki">
                             Składniki: 
                         </div>
-
-                        <div class="dodaj_zdjecia">
-                            Dodaj zdjęcia: 
-                        </div>
-
-                        <div class="dodawanie">
-                           
-                            <asp:FileUpload ID="FileUploadControl" runat="server" CssClass="form-style2" />
-
-                        </div>
                         <div class="listaskladnikow">
                             <asp:CheckBoxList ID="CheckBoxListS" runat="server" CssClass="wygladchecka"></asp:CheckBoxList>
                         </div>
+
+                        <div class="skladniki">
+                            Dodaj zdjęcia: 
+                        </div>
+                        
+                        <div class="dodajBut2">
+                            <asp:FileUpload ID="upload" runat="server" class="hidden"/>
+                            <label for="upload" class="btn">Wybierz plik</label>
+                            <br />
+                            <asp:Image ID="thumbnail" runat="server" AlternateText="Thumbnail" style="display: none; max-width: 200px; margin-top: 10px;" />
+                        </div>
+                        
         <div class="dodajBut">
              <asp:Button ID="ButtonZat" runat="server" Text="Dodaj" OnClick="ButtonZat_Click" class="btn mt-4"/>
         </div>
