@@ -40,17 +40,17 @@
         <classShapeMoniker Id="4038e628-7a8f-44a1-9caa-3cb307d9b259" />
       </nodes>
     </associationConnector>
-    <classShape Id="8dbeaf49-766e-4e7a-bae0-a22118cb3ad2" absoluteBounds="7.625, 2.75, 2, 1.3862939453125">
+    <classShape Id="57f73ef9-1771-4df9-a51f-f3f66c285280" absoluteBounds="7.5, 2.5, 2, 1.3862939453125">
       <DataClassMoniker Name="/UsersDataContext/Zdjecia" />
       <nestedChildShapes>
-        <elementListCompartment Id="478b5560-d888-4073-b6f5-b780be277a75" absoluteBounds="7.64, 3.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="dd807576-adf5-4e30-b1b0-52acea79010c" absoluteBounds="7.5150000000000006, 2.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(7 : 1.8862939453125); (7 : 3.57283870897454); (7.625 : 3.57283870897454)]" fixedFrom="Algorithm" fixedTo="Caller">
+    <associationConnector edgePoints="[(6.9375 : 1.8862939453125); (6.9375 : 3.19314697265625); (7.5 : 3.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/UsersDataContext/Przepis/Przepis_Zdjecia" />
       <nodes>
         <classShapeMoniker Id="108a6234-1823-449e-a039-00f1d813c6ad" />
-        <classShapeMoniker Id="8dbeaf49-766e-4e7a-bae0-a22118cb3ad2" />
+        <classShapeMoniker Id="57f73ef9-1771-4df9-a51f-f3f66c285280" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

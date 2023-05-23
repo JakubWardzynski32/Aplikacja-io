@@ -38,7 +38,7 @@
   <Table Name="dbo.Zdjecia" Member="Zdjecia">
     <Type Name="Zdjecia">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="zdjecie" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="zdjecie" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="id_przepisu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Przepis_Zdjecia" Member="Przepis" ThisKey="id_przepisu" OtherKey="Id" Type="Przepis" IsForeignKey="true" />
     </Type>

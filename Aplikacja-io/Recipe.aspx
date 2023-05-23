@@ -6,6 +6,7 @@
 <head>
       <title>Dodaj przepis</title>
         <link rel="stylesheet" href="Styless.css">
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -36,7 +37,7 @@
                         </div>
                         
                         <div class="dodajBut2">
-                            <asp:FileUpload ID="upload" runat="server" class="hidden"/>
+                            <asp:FileUpload ID="upload" runat="server" class="hidden" onclick="showThumbnail"/>
                             <label for="upload" class="btn">Wybierz plik</label>
                             <br />
                             <asp:Image ID="thumbnail" runat="server" AlternateText="Thumbnail" style="display: none; max-width: 200px; margin-top: 10px;" />
