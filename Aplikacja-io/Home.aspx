@@ -35,7 +35,7 @@
 
                         <asp:Repeater ID="repeaterPrzepisy" runat="server" >
                            <ItemTemplate>
-                             <a href=Przepis/<%# Eval("Nazwa") %>><%# Eval("Nazwa") %></a>
+                             <a href="Przepis.aspx?ID=<%# Eval("ID") %>"><%# Eval("Nazwa") %></a>
                             <br />
                          </ItemTemplate>
                         </asp:Repeater>
