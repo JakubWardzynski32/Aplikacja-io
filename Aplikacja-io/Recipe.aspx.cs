@@ -24,8 +24,10 @@ namespace Aplikacja_io
             {
                 foreach (Skladnik skk in Bz.Skladnik)
                 {
+
                     CheckBoxListS.Items.Add(skk.Nazwa);
                 }
+              
             }
 
             upload.Attributes["onchange"] = "showThumbnail(this)";
@@ -47,19 +49,16 @@ namespace Aplikacja_io
             Bz.Przepis.InsertOnSubmit(p);
             //Bz.SubmitChanges();
 
-            foreach (var nazwa in CheckBoxListS.Items)
+            foreach (ListItem nazwa in CheckBoxListS.Items)
             {
                 foreach (Skladnik sk in Bz.Skladnik)
                 {
-                    if (sk.Nazwa.Equals(nazwa.ToString()))
+                    if (sk.Nazwa.Equals(nazwa.Text)&& nazwa.Selected)
                     {
                         PS pS = new PS();
                         pS.Skladnik = sk;
                         pS.Przepis = p;
                         Bz.PS.InsertOnSubmit(pS);
-
-
-
                     }
                 }
             }

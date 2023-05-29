@@ -25,7 +25,21 @@
                     <li><a href="Test.aspx">Rejestracja</a></li>
                 </ul>
             </nav>
-            
+            <div>
+    
+                <asp:TextBox ID="TextBoxPrzepis" runat="server"></asp:TextBox>
+                <asp:Button ID="ButtonSzukaj" runat="server" Text="Szukaj" OnClick="ButtonSzukaj_Click" />
+                    
+            </div>
+            <div>
+
+                        <asp:Repeater ID="repeaterPrzepisy" runat="server">
+                           <ItemTemplate>
+                             <a href=Przepis/<%# Eval("Nazwa") %>><%# Eval("Nazwa") %></a>
+                            <br />
+                         </ItemTemplate>
+                        </asp:Repeater>
+            </div>
         </div>
     </form>
 </body>
