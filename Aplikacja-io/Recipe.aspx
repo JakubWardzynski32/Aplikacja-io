@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
       <title>Dodaj przepis</title>
-        <link rel="stylesheet" href="Styless.css">
+        <link rel="stylesheet" href="Stylesss.css">
 
 </head>
 <body>

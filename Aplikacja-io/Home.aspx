@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
      <title>Strona Głowna</title>
-     <link rel="stylesheet" href="Styless.css">
+     <link rel="stylesheet" href="Stylesss.css">
 </head>
 <body>
     <form id="form1" runat="server">
@@ -22,18 +22,18 @@
             <nav>
                 <ul>
                     <li><a href="Recipe.aspx">Dodaj przepis</a></li>
-                    <li><a href="Test.aspx">Rejestracja</a></li>
                 </ul>
             </nav>
-            <div>
-    
-                <asp:TextBox ID="TextBoxPrzepis" runat="server"></asp:TextBox>
-                <asp:Button ID="ButtonSzukaj" runat="server" Text="Szukaj" OnClick="ButtonSzukaj_Click" />
-                    
+            <div class="wyszukiwanie">
+                <asp:TextBox ID="TextBoxPrzepis" runat="server" CssClass="form-style2" placeholder="Wyszukaj"></asp:TextBox>
             </div>
-            <div>
+            <div class="szukanie">
+                    <asp:Button ID="ButtonSzukaj" runat="server" Text="Szukaj" OnClick="ButtonSzukaj_Click" CssClass="btn mt-4"/>
+            </div>
 
-                        <asp:Repeater ID="repeaterPrzepisy" runat="server">
+            <div class="wypisywanie">
+
+                        <asp:Repeater ID="repeaterPrzepisy" runat="server" >
                            <ItemTemplate>
                              <a href=Przepis/<%# Eval("Nazwa") %>><%# Eval("Nazwa") %></a>
                             <br />

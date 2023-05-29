@@ -293,8 +293,9 @@ nav ul li {
 }
 
 .container2 {
+    top:0%;
     width: 60%;
-    height: 100%;
+    height: 90%;
     background-color: #2b2e38;
     position: absolute;
     margin-top: 25%;
@@ -309,18 +310,11 @@ nav ul li {
 }
 
 .listaskladnikow {
-    border-style: none;
-    border-color: inherit;
-    border-width: medium;
-    padding-left: 10%;
-    font-weight: 500;
-    border-radius: 4px;
-    line-height: 22px;
-    letter-spacing: 0.5px;
-    outline: none;
-    color: #c4c3ca;
+    width: 60%;
+    height: 200px;
     background-color: #2b2e38;
-    -webkit-transition: all 200ms linear;
+    border-radius: 4px;
+    overflow-y: auto;
     transition: all 200ms linear;
     box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
     margin-left: 15%;
@@ -330,8 +324,27 @@ nav ul li {
     padding-right: 20px;
     padding-top: 13px;
     padding-bottom: 13px;
-    width: 60%;
+    color: #c4c3ca;
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    padding-left: 10%;
+    font-weight: 500;
+    border-radius: 4px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
 }
+
+    .listaskladnikow::-webkit-scrollbar {
+        width: 15px;
+        background-color: #2b2e38;
+    }
+
+    .listaskladnikow::-webkit-scrollbar-thumb {
+        background-color: #ffeba7;
+    }
+
 
 .dodajBut2 {
     position: absolute;
@@ -343,4 +356,49 @@ nav ul li {
 .hidden{
     display:none;
 }
-    
+
+.wyszukiwanie {
+    position:absolute;
+    text-align: center;
+    width:50%;
+    top:100%;
+    left:20%;
+
+}
+
+.szukanie{
+    position:absolute;
+    width:20%;
+    top:118%;
+    left:65%;
+}
+
+.wypisywanie {
+    width: 60%;
+    height: 72%;
+    background-color: #2b2e38;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
+    top: 25%;
+    overflow-y: scroll;
+}
+
+    .wypisywanie::-webkit-scrollbar {
+        width: 15px;
+        background-color: #2b2e38;
+    }
+
+    .wypisywanie::-webkit-scrollbar-thumb {
+        background-color: #ffeba7;
+    }
+
+
+
+.wypisywanie a{
+    position:absolute;
+    margin-top:2%;
+    margin-left:5%;
+}
