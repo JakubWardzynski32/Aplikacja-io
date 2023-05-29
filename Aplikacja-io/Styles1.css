@@ -255,18 +255,13 @@ nav ul li {
     width: 10%;
     font-size: 10px;
 }
-.dodajBut {
+.AddBut {
     position: absolute;
     top: 95%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.przepis {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+
 .form-style2 {
     border-style: none;
     border-color: inherit;
@@ -305,11 +300,11 @@ nav ul li {
     margin-bottom: 25%;
 }
 
-.skladniki {
+.heading {
     text-align: center;
 }
 
-.listaskladnikow {
+.listofigrediants {
     width: 60%;
     height: 200px;
     background-color: #2b2e38;
@@ -336,17 +331,17 @@ nav ul li {
     outline: none;
 }
 
-    .listaskladnikow::-webkit-scrollbar {
+    .listofigrediants::-webkit-scrollbar {
         width: 15px;
         background-color: #2b2e38;
     }
 
-    .listaskladnikow::-webkit-scrollbar-thumb {
+    .listofigrediants::-webkit-scrollbar-thumb {
         background-color: #ffeba7;
     }
 
 
-.dodajBut2 {
+.AddBut2 {
     position: absolute;
     top: 85%;
     left: 50%;
@@ -357,7 +352,7 @@ nav ul li {
     display:none;
 }
 
-.wyszukiwanie {
+.search{
     position:absolute;
     text-align: center;
     width:50%;
@@ -366,14 +361,14 @@ nav ul li {
 
 }
 
-.szukanie{
-    position:absolute;
-    width:20%;
-    top:118%;
-    left:65%;
+.searching {
+    position: absolute;
+    width: 20%;
+    top: 118%;
+    left: 65%;
 }
 
-.wypisywanie {
+.write {
     width: 60%;
     height: 72%;
     background-color: #2b2e38;
@@ -386,19 +381,92 @@ nav ul li {
     overflow-y: scroll;
 }
 
-    .wypisywanie::-webkit-scrollbar {
+    .write::-webkit-scrollbar {
         width: 15px;
         background-color: #2b2e38;
     }
 
-    .wypisywanie::-webkit-scrollbar-thumb {
+    .write::-webkit-scrollbar-thumb {
         background-color: #ffeba7;
     }
 
 
 
-.wypisywanie a{
+    .write a {
+        position: absolute;
+        margin-top: 2%;
+        margin-left: 5%;
+    }
+
+.name{
+    font-size: 30px;
+    margin-left: 5%;
+    margin-bottom: 0;
+    width: 30%;
+}
+
+.container3 {
+    top: 0%;
+    width: 60%;
+    height: 90%;
+    background-color: #2b2e38;
+    position: absolute;
+    margin-top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    margin-bottom: 25%;
+}
+
+.ingrediants {
+    position: absolute;
+    width: 20%;
+    background-color: #2b2e38;
+    left: 5%;
+    top: 12%;
+    height: 100%;
+    border-radius: 6px;
+}
+    .ingrediants ul {
+        position: absolute;
+        margin-top: 2%;
+        margin-left: 5%;
+    }
+
+.headerIngrediants {
+    left: 13%;
+    position: absolute;
+}
+
+.photo{
     position:absolute;
-    margin-top:2%;
-    margin-left:5%;
+    width:50%;
+    left:40%;
+    top:5%;
+    height:32%;
+
+}
+
+    .photo img {
+        position: absolute;
+        left: 10%;
+        width: 70%;
+        height: auto;
+        border-radius: 6px;
+    }
+.descriptonText{
+    position:absolute;
+    top:38%;
+    left:60%;
+}
+.description {
+    position: absolute;
+    top: 42%;
+    background-color: #2b2e38;
+    width: 40%;
+    left: 40%;
+    height: 64%;
+    border-radius: 6px;
+    padding-top: 3%;
+    padding-left: 5%;
 }

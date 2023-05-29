@@ -76,8 +76,8 @@ namespace Aplikacja_io
                 }
 
                 Zdjecia zdj = new Zdjecia();
-                zdj.id_przepisu = p.Id; 
-                zdj.zdjecie = imageBytes;
+                zdj.id_przepisu = p.Id;
+                zdj.zdjecie = new System.Data.Linq.Binary(imageBytes); // Konwersja na typ Binary
 
                 Bz.Zdjecia.InsertOnSubmit(zdj);
                 Bz.SubmitChanges();
@@ -85,25 +85,6 @@ namespace Aplikacja_io
 
             //Bz.Skladnik.InsertOnSubmit(skladnik);
             //Bz.PS.InsertOnSubmit(pS);
-        }
-
-
-
-
-        protected void showThumbnail(object sender, EventArgs e)
-        {
-            if (upload.HasFile)
-            {
-                byte[] fileBytes = upload.FileBytes;
-                string base64String = Convert.ToBase64String(fileBytes);
-                string imageSource = "data:" + upload.PostedFile.ContentType + ";base64," + base64String;
-                thumbnail.ImageUrl = imageSource;
-                thumbnail.Style["display"] = "block";
-            }
-            else
-            {
-                thumbnail.Style["display"] = "none";
-            }
         }
     }
 }

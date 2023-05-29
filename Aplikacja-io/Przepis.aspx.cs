@@ -33,7 +33,7 @@ namespace Aplikacja_io
                         // Przypisz wartości do odpowiednich Literali
                         LiteralNazwa.Text = p.Nazwa;
                         LiteralOpis.Text = p.Opis;
-                        LiteralIlosc.Text = ilosc.ToString();
+                        //LiteralIlosc.Text = ilosc.ToString();
 
                         RepeaterSkladniki.DataSource = skladniki;
                         RepeaterSkladniki.DataBind();
@@ -80,7 +80,7 @@ namespace Aplikacja_io
 
             foreach (Zdjecia z in Bz.Zdjecia)
             {
-                if (z.Id == id)
+                if (z.id_przepisu == id)
                 {
                     zdjecia.Add(z);
                 }
@@ -89,10 +89,12 @@ namespace Aplikacja_io
 
         protected string GetImageUrl(object image)
         {
-            byte[] imageData = (byte[])image;
-            string base64String = Convert.ToBase64String(imageData);
+            System.Data.Linq.Binary imageData = (System.Data.Linq.Binary)image;
+            byte[] imageBytes = imageData.ToArray();
+            string base64String = Convert.ToBase64String(imageBytes);
             string imageUrl = "data:image/jpeg;base64," + base64String;
             return imageUrl;
         }
+
     }
 }

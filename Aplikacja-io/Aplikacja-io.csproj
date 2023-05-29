@@ -74,10 +74,11 @@
     </Content>
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Przepis.aspx" />
     <Content Include="Recipe.aspx">
       <BrowseToURL>~/Recipe.aspx</BrowseToURL>
     </Content>
-    <Content Include="Stylesss.css" />
+    <Content Include="Styles1.css" />
     <Content Include="Test.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -97,6 +98,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Przepis.aspx.cs">
+      <DependentUpon>Przepis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Przepis.aspx.designer.cs">
+      <DependentUpon>Przepis.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Recipe.aspx.cs">
       <DependentUpon>Recipe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

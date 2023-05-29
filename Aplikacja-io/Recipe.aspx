@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
       <title>Dodaj przepis</title>
-        <link rel="stylesheet" href="Stylesss.css">
+        <link rel="stylesheet" href="Styles1.css">
 
 </head>
 <body>
@@ -16,34 +16,34 @@
                     Dodaj przepis
                 </div>
                     <div class="container2">
-                        <div class="nazwaPrzepisu">
+                        <div class="nameofrecipe">
                             <asp:TextBox ID="TextBoxName" placeholder="Nazwa" runat="server" CssClass="form-style2"></asp:TextBox>
                         </div>
-                         <div class="nazwaPrzepisu">
+                         <div class="nameofrecipe">
                             <asp:TextBox ID="TextBoxDescription" placeholder="Opis" runat="server" CssClass="form-style2"></asp:TextBox>
                         </div> 
-                        <div class="nazwaPrzepisu">
+                        <div class="nameofrecipe">
                             <asp:TextBox ID="TextBoxLogin" placeholder="Ilość" runat="server" CssClass="form-style2"></asp:TextBox>
                         </div>
-                        <div class="skladniki">
+                        <div class="heading">
                             Składniki: 
                         </div>
-                        <div class="listaskladnikow">
+                        <div class="listofigrediants">
                             <asp:CheckBoxList ID="CheckBoxListS" runat="server" CssClass="wygladchecka"></asp:CheckBoxList>
                         </div>
 
-                        <div class="skladniki">
+                        <div class="heading">
                             Dodaj zdjęcia: 
                         </div>
                         
-                        <div class="dodajBut2">
+                        <div class="AddBut2">
                             <asp:FileUpload ID="upload" runat="server" class="hidden" onclick="showThumbnail"/>
                             <label for="upload" class="btn">Wybierz plik</label>
                             <br />
                             <asp:Image ID="thumbnail" runat="server" AlternateText="Thumbnail" style="display: none; max-width: 200px; margin-top: 10px;" />
                         </div>
                         
-        <div class="dodajBut">
+        <div class="AddBut">
              <asp:Button ID="ButtonZat" runat="server" Text="Dodaj" OnClick="ButtonZat_Click" class="btn mt-4"/>
         </div>
             </div>

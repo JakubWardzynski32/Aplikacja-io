@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
      <title>Strona Głowna</title>
-     <link rel="stylesheet" href="Stylesss.css">
+     <link rel="stylesheet" href="Styles1.css">
 </head>
 <body>
     <form id="form1" runat="server">
@@ -24,14 +24,14 @@
                     <li><a href="Recipe.aspx">Dodaj przepis</a></li>
                 </ul>
             </nav>
-            <div class="wyszukiwanie">
+            <div class="search">
                 <asp:TextBox ID="TextBoxPrzepis" runat="server" CssClass="form-style2" placeholder="Wyszukaj"></asp:TextBox>
             </div>
-            <div class="szukanie">
+            <div class="searching">
                     <asp:Button ID="ButtonSzukaj" runat="server" Text="Szukaj" OnClick="ButtonSzukaj_Click" CssClass="btn mt-4"/>
             </div>
 
-            <div class="wypisywanie">
+            <div class="write">
 
                         <asp:Repeater ID="repeaterPrzepisy" runat="server" >
                            <ItemTemplate>
