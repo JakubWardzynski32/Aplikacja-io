@@ -26,6 +26,7 @@ namespace Aplikacja_io
                 {
 
                     CheckBoxListS.Items.Add(skk.Nazwa);
+
                 }
               
             }

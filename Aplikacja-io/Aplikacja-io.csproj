@@ -78,6 +78,7 @@
     <Content Include="Recipe.aspx">
       <BrowseToURL>~/Recipe.aspx</BrowseToURL>
     </Content>
+    <Content Include="RecipeEdit.aspx" />
     <Content Include="Styles1.css" />
     <Content Include="Test.aspx" />
     <Content Include="Web.config" />
@@ -111,6 +112,13 @@
     </Compile>
     <Compile Include="Recipe.aspx.designer.cs">
       <DependentUpon>Recipe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeEdit.aspx.cs">
+      <DependentUpon>RecipeEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecipeEdit.aspx.designer.cs">
+      <DependentUpon>RecipeEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>

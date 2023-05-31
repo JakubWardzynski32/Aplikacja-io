@@ -49,6 +49,10 @@ namespace Aplikacja_io
                     // ...
 
                 }
+                else
+                {
+                    Response.Redirect("Home.aspx");
+                }
             }
         }
         protected void getPrzepis(int id)
@@ -94,6 +98,12 @@ namespace Aplikacja_io
             string base64String = Convert.ToBase64String(imageBytes);
             string imageUrl = "data:image/jpeg;base64," + base64String;
             return imageUrl;
+        }
+
+        protected void ButtonEditClick(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(Request.QueryString["ID"]);
+            Response.Redirect("RecipeEdit.aspx?ID=" + id);
         }
 
     }
