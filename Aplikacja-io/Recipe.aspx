@@ -29,7 +29,8 @@
                             Składniki: 
                         </div>
                         <div class="listofigrediants">
-                            <asp:CheckBoxList ID="CheckBoxListS" runat="server" CssClass="wygladchecka"></asp:CheckBoxList>
+                            <asp:CheckBoxList ID="CheckBoxListS" runat="server" CssClass="wygladchecka" OnSelectedIndexChanged="CheckBoxListS_OnSelectedIndexChange"></asp:CheckBoxList>
+                            <asp:PlaceHolder ID="TextBoxPlaceholder"    runat="server"> </asp:PlaceHolder>
                         </div>
 
                         <div class="heading">

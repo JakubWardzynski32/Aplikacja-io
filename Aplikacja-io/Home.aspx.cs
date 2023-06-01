@@ -40,9 +40,13 @@ namespace Aplikacja_io
             //    Response.Redirect("Test.aspx");
             // }
             //Przepis p = new Przepis();
+            List<Przepis> przepisy;
+            PrzepisRepository przepisRepo = new PrzepisRepository();
+            przepisy = przepisRepo.GetPrzepisy();
+            repeaterPrzepisy.DataSource = przepisy;
+            repeaterPrzepisy.DataBind();
 
-           
-            }
+        }
 
         protected void ButtonSzukaj_Click(object sender, EventArgs e)
         {
@@ -50,18 +54,16 @@ namespace Aplikacja_io
             //{
                 PrzepisRepository przepisRepo = new PrzepisRepository();
 
-                searchQuery = TextBoxPrzepis.Text; // Pobierz wartość zapytania wyszukiwania
+                searchQuery = TextBoxPrzepis.Text; 
 
                 List<Przepis> przepisy;
 
                 if (!string.IsNullOrEmpty(searchQuery))
                 {
-                    // Jeśli jest zapytanie wyszukiwania, pobierz przepisy pasujące do wyszukiwanego ciągu
                     przepisy = przepisRepo.GetPrzepisyByQuery(searchQuery);
                 }
                 else
                 {
-                    // W przeciwnym razie pobierz wszystkie przepisy
                     przepisy = przepisRepo.GetPrzepisy();
                 }
 

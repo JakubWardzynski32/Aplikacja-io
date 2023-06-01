@@ -26,6 +26,11 @@ namespace Aplikacja_io
                 {
 
                     CheckBoxListS.Items.Add(skk.Nazwa);
+                    TextBox textBox = new TextBox();
+                    textBox.ID = "textBox_" + skk.Nazwa;
+                    TextBoxPlaceholder.Controls.Add(textBox);
+
+
                 }
               
             }
@@ -33,6 +38,28 @@ namespace Aplikacja_io
             upload.Attributes["onchange"] = "showThumbnail(this)";
 
         }
+
+        protected void CheckBoxListS_OnSelectedIndexChange(object sender, EventArgs e)
+        {
+            generateTextBoxes();
+        }
+
+        protected void generateTextBoxes()
+        {
+
+
+            TextBoxPlaceholder.Controls.Clear();
+            foreach(ListItem item in CheckBoxListS.Items)
+            {
+                if(item.Selected)
+                {
+                    TextBox textBox = new TextBox();
+                    textBox.ID = "textBox_" + item.Value;
+                    TextBoxPlaceholder.Controls.Add(textBox);
+                }
+            }
+        }
+
 
         protected void ButtonZat_Click(object sender, EventArgs e)
         {
