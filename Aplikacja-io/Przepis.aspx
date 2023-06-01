@@ -40,6 +40,9 @@
                     <asp:Literal runat="server" ID="LiteralOpis"></asp:Literal>
                 </div>               
             </div>
+        <div>
+            <asp:Button ID="ButtonEdit" runat="server" Text="Edytuj Przepis" onclick="ButtonEditClick" CssClass="btn mt-4"/>
+        </div>
     </form>
 </body>
 </html>
