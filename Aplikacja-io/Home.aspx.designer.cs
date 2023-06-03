@@ -33,6 +33,15 @@ namespace Aplikacja_io
         protected global::System.Web.UI.WebControls.Button ButtonLogOut;
 
         /// <summary>
+        /// Kontrolka GreetingText.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// Aby wprowadzić zmiany, przenieś deklarację pola z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal GreetingText;
+
+        /// <summary>
         /// Kontrolka TextBoxPrzepis.
         /// </summary>
         /// <remarks>
