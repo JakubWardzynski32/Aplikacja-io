@@ -60,16 +60,16 @@ namespace Aplikacja_io
         protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListS;
 
         /// <summary>
-        /// TextBoxPlaceholder control.
+        /// Kontrolka TextBoxPlaceholder.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Pole generowane automatycznie.
+        /// Aby wprowadzić zmiany, przenieś deklarację pola z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder TextBoxPlaceholder;
 
         /// <summary>
-        /// upload control.
+        /// Kontrolka upload.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.

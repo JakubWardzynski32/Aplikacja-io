@@ -22,15 +22,24 @@ namespace Aplikacja_io
 
             if (!IsPostBack)
             {
-                foreach (Skladnik skk in Bz.Skladnik)
+
+                if (Session["login"] != null)
                 {
 
-                    CheckBoxListS.Items.Add(skk.Nazwa);
-                    TextBox textBox = new TextBox();
-                    textBox.ID = "textBox_" + skk.Nazwa;
-                    TextBoxPlaceholder.Controls.Add(textBox);
+                    foreach (Skladnik skk in Bz.Skladnik)
+                    {
+
+                        CheckBoxListS.Items.Add(skk.Nazwa);
+                        TextBox textBox = new TextBox();
+                        textBox.ID = "textBox_" + skk.Nazwa;
+                        TextBoxPlaceholder.Controls.Add(textBox);
 
 
+                    }
+                }
+                else
+                {
+                    Response.Redirect("Test.aspx");
                 }
               
             }

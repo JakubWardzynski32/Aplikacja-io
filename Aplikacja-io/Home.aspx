@@ -13,6 +13,7 @@
             <div class="log-rej">
                 <ul>
                     <li><a href="Test.aspx">Logowanie/Rejestracja</a></li>
+                    <asp:Button ID="ButtonLogOut" runat="server" Text="Wyloguj" OnClick="Log_Out" CssClass="btn mt-2" />
                 </ul>
              </div>
             <div class="header">

@@ -30,6 +30,8 @@ namespace Aplikacja_io
                     TextBoxLogin.BackColor = default;
                     TextBoxHaslo.BackColor = default;
                     Session.Add("login", "test");
+
+                    Response.Redirect("Home.aspx");
                 }
                 else
                 {

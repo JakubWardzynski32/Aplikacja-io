@@ -15,67 +15,70 @@
 	<form id="form1" runat="server">
 	<div class="section">
 		<div class="container">
-			<div class="row full-height justify-content-center">
-				<div class="col-12 text-center align-self-center py-5">
-					<div class="section pb-5 pt-5 pt-sm-2 text-center">
-						<h6 class="mb-0 pb-3"><span>Zaloguj </span><span>Zarejestruj</span></h6>
-			          	<input class="checkbox1 " type="checkbox" id="reg-log" name="reg-log"/>
-			          	<label for="reg-log"></label>
-						<div class="card-3d-wrap mx-auto">
-							<div class="card-3d-wrapper">
-								<div class="card-front">
-									<div class="center-wrap">
-										<div class="section text-center">
-											<h4 class="mb-4 pb-3">Logowanie</h4>
-											<div class="form-group">
-												<asp:TextBox ID="TextBoxLogin" runat="server" placeholder="Login" CssClass="form-style" ></asp:TextBox>
+			<div class="nav">
+				<a href="Home.aspx">Strona Główna</a>
+			</div>
+				<div class="row full-height justify-content-center">
+					<div class="col-12 text-center align-self-center py-5">
+						<div class="section pb-5 pt-5 pt-sm-2 text-center">
+							<h6 class="mb-0 pb-3"><span>Zaloguj </span><span>Zarejestruj</span></h6>
+			          		<input class="checkbox1 " type="checkbox" id="reg-log" name="reg-log"/>
+			          		<label for="reg-log"></label>
+							<div class="card-3d-wrap mx-auto">
+								<div class="card-3d-wrapper">
+									<div class="card-front">
+										<div class="center-wrap">
+											<div class="section text-center">
+												<h4 class="mb-4 pb-3">Logowanie</h4>
+												<div class="form-group">
+													<asp:TextBox ID="TextBoxLogin" runat="server" placeholder="Login" CssClass="form-style" ></asp:TextBox>
 												
-											</div>	
-											<div class="form-group mt-2">
-												<asp:TextBox ID="TextBoxHaslo" runat="server" placeholder="Haslo" CssClass="form-style" TextMode="Password" ></asp:TextBox>
+												</div>	
+												<div class="form-group mt-2">
+													<asp:TextBox ID="TextBoxHaslo" runat="server" placeholder="Haslo" CssClass="form-style" TextMode="Password" ></asp:TextBox>
 												
-											</div>
+												</div>
 											
-											<asp:Button ID="ButtonLog" runat="server" Text="Zaloguj" OnClick="ButtonLog_Click" class="btn mt-4"/>
+												<asp:Button ID="ButtonLog" runat="server" Text="Zaloguj" OnClick="ButtonLog_Click" class="btn mt-4"/>
                       
-				      					</div>
+				      						</div>
+			      						</div>
 			      					</div>
-			      				</div>
-								<div class="card-back">
-									<div class="center-wrap">
-										<div class="section text-center">
-											<h4 class="mb-3 pb-3">Rejstracja</h4>
-											<div class="form-group">
+									<div class="card-back">
+										<div class="center-wrap">
+											<div class="section text-center">
+												<h4 class="mb-3 pb-3">Rejstracja</h4>
+												<div class="form-group">
 												
-												<asp:TextBox ID="TextBoxRImie" runat="server" CssClass="form-style" placeholder="Imię"></asp:TextBox>
+													<asp:TextBox ID="TextBoxRImie" runat="server" CssClass="form-style" placeholder="Imię"></asp:TextBox>
 												
-											</div>	
-											<div class="form-group mt-2">
+												</div>	
+												<div class="form-group mt-2">
 												
-												<asp:TextBox ID="TextBoxRLogin" runat="server" CssClass="form-style" placeholder="Login"></asp:TextBox>
-											</div>	
-										 <div class="form-group mt-2">
+													<asp:TextBox ID="TextBoxRLogin" runat="server" CssClass="form-style" placeholder="Login"></asp:TextBox>
+												</div>	
+											 <div class="form-group mt-2">
 												
-												 <asp:TextBox ID="TextBoxREmail" runat="server" CssClass="form-style" placeholder="e-mail"></asp:TextBox>
+													 <asp:TextBox ID="TextBoxREmail" runat="server" CssClass="form-style" placeholder="e-mail"></asp:TextBox>
 												
-											</div>
-											<div class="form-group mt-2">
+												</div>
+												<div class="form-group mt-2">
 												
-												<asp:TextBox ID="TextBoxRHaslo" runat="server" TextMode="Password" placeholder="Hasło" CssClass="form-style"></asp:TextBox>
+													<asp:TextBox ID="TextBoxRHaslo" runat="server" TextMode="Password" placeholder="Hasło" CssClass="form-style"></asp:TextBox>
 												
-											</div>
+												</div>
 										
-											<asp:Button ID="ButtonReg" runat="server" Text="Zarejestruj" OnClick="ButtonReg_Click" class="btn mt-4"/>
-				      					</div>
+												<asp:Button ID="ButtonReg" runat="server" Text="Zarejestruj" OnClick="ButtonReg_Click" class="btn mt-4"/>
+				      						</div>
+			      						</div>
 			      					</div>
 			      				</div>
 			      			</div>
 			      		</div>
-			      	</div>
-		      	</div>
-	      	</div>
-	    </div>
-	</div>
+		      		</div>
+	      		</div>
+			</div>
+		</div>
 		</form>
 </body>
 </html>

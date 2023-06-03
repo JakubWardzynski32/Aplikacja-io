@@ -70,6 +70,15 @@ namespace Aplikacja_io
                 repeaterPrzepisy.DataSource = przepisy;
                 repeaterPrzepisy.DataBind();
             //}
-    }
+        }
+
+        protected void Log_Out(object sender, EventArgs e)
+        {
+            if (Session["login"] != null)
+            {
+                Session.Clear();
+                Response.Redirect("Test.aspx");
+            }
+        }
     }
 }
