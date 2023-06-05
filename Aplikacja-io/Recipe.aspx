@@ -28,7 +28,7 @@
                         </div>
                         <div class="listofigrediants">
                             
-                            <asp:Repeater ID="repeaterSkladniki" runat="server" OnItemDataBound="repeaterSkladniki_ItemDataBound" >
+                            <asp:Repeater ID="repeaterSkladniki" runat="server" OnItemDataBound="repeaterSkladniki_ItemDataBound"  >
                            <ItemTemplate>
                                <asp:CheckBox ID="CheckBox" Text='<%# Eval("Nazwa") %>'  runat="server" />
                                <asp:Label ID="Label" runat="server" Text="" Visible="false"></asp:Label>
