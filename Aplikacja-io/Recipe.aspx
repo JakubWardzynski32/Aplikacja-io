@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Recipe.aspx.cs" Inherits="Aplikacja_io.Register" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Recipe.aspx.cs" Inherits="Aplikacja_io.Register" Async="true" %>
 
 <!DOCTYPE html>
 
@@ -22,17 +22,23 @@
                          <div class="nameofrecipe">
                             <asp:TextBox ID="TextBoxDescription" placeholder="Opis" runat="server" CssClass="form-style2"></asp:TextBox>
                         </div> 
-                        <div class="nameofrecipe">
-                            <asp:TextBox ID="TextBoxLogin" placeholder="Ilość" runat="server" CssClass="form-style2"></asp:TextBox>
-                        </div>
+                       
                         <div class="heading">
                             Składniki: 
                         </div>
                         <div class="listofigrediants">
-                            <asp:CheckBoxList ID="CheckBoxListS" runat="server" CssClass="wygladchecka" OnSelectedIndexChanged="CheckBoxListS_OnSelectedIndexChange"></asp:CheckBoxList>
-                            <asp:PlaceHolder ID="TextBoxPlaceholder" runat="server"> </asp:PlaceHolder>
-                        </div>
+                            
+                            <asp:Repeater ID="repeaterSkladniki" runat="server" OnItemDataBound="repeaterSkladniki_ItemDataBound" >
+                           <ItemTemplate>
+                               <asp:CheckBox ID="CheckBox" Text='<%# Eval("Nazwa") %>'  runat="server" />
+                               <asp:Label ID="Label" runat="server" Text="" Visible="false"></asp:Label>
+                               <asp:TextBox ID="TextBox" TextMode="Number" runat="server"></asp:TextBox>
+                            <br />
+                         </ItemTemplate>
+                        </asp:Repeater>
 
+                        </div>
+                        
                         <div class="heading">
                             Dodaj zdjęcia: 
                         </div>

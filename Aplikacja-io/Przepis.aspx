@@ -20,7 +20,7 @@
                     <ul>
                         <asp:Repeater runat="server" ID="RepeaterSkladniki">
                             <ItemTemplate>
-                                <li><%# Eval("Nazwa") %></li>
+                                <li><%# Eval("Nazwa") %> <%# Eval("Nazwa") %></li>
                             </ItemTemplate>
                         </asp:Repeater>
                     </ul>
