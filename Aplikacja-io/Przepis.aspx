@@ -5,7 +5,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title> </title>
-    <link rel="stylesheet" href="Styles5.css">
+    <link rel="stylesheet" href="Styles6.css">
 </head>
 <body>
     <form id="form1" runat="server">
@@ -43,6 +43,12 @@
             </div>
         <div class="butEdit">
             <asp:Button ID="ButtonEdit" runat="server" Text="Edytuj Przepis" onclick="ButtonEditClick" CssClass="btn mt-4"/>
+        </div>
+        <div class="butdelete">
+            <asp:Button ID="ButtonUsun" runat="server" Text="Usuń Przepis" onclick="ButtonUsunClick" CssClass="btn mt-4"/>
+        </div>
+        <div class="butBack">
+            <asp:Button ID="ButtonBack" runat="server" Text="Strona Główna" onclick="ButtonBackClick" CssClass="btn mt-4"/>
         </div>
     </form>
 </body>

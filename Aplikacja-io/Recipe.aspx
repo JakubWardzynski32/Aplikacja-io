@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
       <title>Dodaj przepis</title>
-        <link rel="stylesheet" href="Styles5.css">
+        <link rel="stylesheet" href="Styles6.css">
 
 </head>
 <body>
@@ -54,6 +54,9 @@
         <div class="AddBut">
              <asp:Button ID="ButtonZat" runat="server" Text="Dodaj" OnClick="ButtonZat_Click" class="btn mt-4"/>
         </div>
+                        <div class="butCancel">
+                        <asp:Button ID="ButtonCancel" runat="server" Text="Odrzuć Zmiany" OnClick="ButtonCancel_Click" class="btn mt-4" />
+                    </div>
             </div>
             </div>
         </div>

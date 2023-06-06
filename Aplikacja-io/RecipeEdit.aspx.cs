@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static Aplikacja_io.Register;
 
 namespace Aplikacja_io
 {
@@ -14,6 +15,15 @@ namespace Aplikacja_io
         private Przepis p = new Przepis();
         private List<Skladnik> skladniki = new List<Skladnik>();
         private List<Zdjecia> zdjecia = new List<Zdjecia>();
+
+        public class SkladnikRepository
+        {
+            UsersDataContext Bz = new UsersDataContext(System.Configuration.ConfigurationManager.ConnectionStrings["UsersConnectionString"].ConnectionString);
+            public List<Skladnik> GetSkladniki()
+            {
+                return Bz.Skladnik.ToList();
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,25 +39,62 @@ namespace Aplikacja_io
                     TextBoxName.Text = p.Nazwa;
                     TextBoxDescription.Text = p.Opis;
 
-                    foreach (Skladnik sk in Bz.Skladnik)
-                    {
-                        ListItem item = new ListItem(sk.Nazwa, sk.Id.ToString());
-                        CheckBoxListS.Items.Add(item);
 
-                        foreach (Skladnik skk in skladniki)
-                        {
-                            if (skk.Id == sk.Id)
-                            {
-                                item.Selected = true;
-                            }
-                        }
-                    }
+                    List<Skladnik> skladnikiwypis;
+                    SkladnikRepository skladnikRepo = new SkladnikRepository();
+                    skladnikiwypis = skladnikRepo.GetSkladniki();
+                    repeaterSkladniki.DataSource = skladnikiwypis;
+                    repeaterSkladniki.DataBind();
+
                 }
                 else
                 {
                     Response.Redirect("Home.aspx");
                 }
             }
+        }
+
+        protected void repeaterSkladniki_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            
+
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+
+                CheckBox checkBox = (CheckBox)e.Item.FindControl("CheckBox");
+                TextBox textBox = (TextBox)e.Item.FindControl("TextBox");
+                Label label = (Label)e.Item.FindControl("Label");
+
+                Skladnik skladnik = (Skladnik)e.Item.DataItem;
+                string nazwa = skladnik.Nazwa;
+                int id = skladnik.Id;
+
+                checkBox.ID = "CheckBox";
+                textBox.ID = "TextBox";
+                label.Text = id.ToString();
+                foreach(Skladnik s in skladniki)
+                {
+                    if(s.Id == id)
+                    {
+                        checkBox.Checked = true;
+                    }
+                }
+                foreach(PS ps in Bz.PS)
+                {
+                    if(ps.Id_skladnika == id && ps.Id_przepisu == p.Id)
+                    {
+                        textBox.Text = ps.Ilosc.ToString();
+                    }
+                }
+                
+            }
+        }
+        protected void ButtonCancel_Click(object sender, EventArgs e)
+        {
+            int przepisID = Convert.ToInt32(Request.QueryString["ID"]);
+            Przepis ExistingPrzepis = Bz.Przepis.FirstOrDefault(pr => pr.Id == przepisID);
+
+            Response.Redirect("Przepis.aspx?ID=" + ExistingPrzepis.Id);
         }
 
         protected void GetPrzepis(int id)
@@ -71,6 +118,7 @@ namespace Aplikacja_io
                         if (i.Id_skladnika == sk.Id)
                         {
                             skladniki.Add(sk);
+                            
                         }
                     }
                 }
@@ -95,35 +143,64 @@ namespace Aplikacja_io
                 ExistingPrzepis.Nazwa = TextBoxName.Text;
                 ExistingPrzepis.Opis = TextBoxDescription.Text;
 
-                foreach (ListItem item in CheckBoxListS.Items)
+
+                foreach (RepeaterItem item in repeaterSkladniki.Items)
                 {
-                    int skladnikId = Convert.ToInt32(item.Value);
-                    Skladnik skladnik = Bz.Skladnik.FirstOrDefault(s => s.Id == skladnikId);
-
-                    bool isChecked = item.Selected;
-                    bool isAssociated = Bz.PS.Any(ps => ps.Id_przepisu == przepisID && ps.Id_skladnika == skladnikId);
-
-                    if (isChecked && !isAssociated)
+                    if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
                     {
-                        bool psExists = Bz.PS.Any(ps => ps.Przepis.Id == przepisID && ps.Skladnik.Id == skladnikId);
+                        CheckBox checkBox = (CheckBox)item.FindControl("CheckBox");
+                        TextBox textBox = (TextBox)item.FindControl("TextBox");
+                        Label label = (Label)item.FindControl("Label");
 
-                        if (!psExists)
+                        string skladnikId = label.Text.ToString();
+                        string ilosc = textBox.Text;
+                        int iloscInt;
+                        int skladnikIdInt;
+
+                        bool isChecked = checkBox.Checked;
+
+                        if (checkBox.Checked)
                         {
-                            PS nowy = new PS();
-                            nowy.Przepis = ExistingPrzepis;
-                            nowy.Skladnik = skladnik;
-                            Bz.PS.InsertOnSubmit(nowy);
+                            
+                            if (int.TryParse(skladnikId, out skladnikIdInt))
+                            {
+                                bool isAssociated = Bz.PS.Any(ps => ps.Id_przepisu == p.Id && ps.Id_skladnika == skladnikIdInt);
+                                if (int.TryParse(ilosc, out iloscInt) && !isAssociated)
+                                {
+
+                                    Skladnik skladnik = Bz.Skladnik.FirstOrDefault(sk => sk.Id == skladnikIdInt);
+                                    PS pS = new PS();
+                                    pS.Skladnik= skladnik;
+                                    pS.Przepis = ExistingPrzepis;
+                                    pS.Ilosc = iloscInt;
+                                    Bz.PS.InsertOnSubmit(pS);
+
+                                }
+
+                            }
                         }
-                    }
-                    else if (!isChecked && isAssociated)
-                    {
-                        PS DoUsuniecia = Bz.PS.FirstOrDefault(ps => ps.Id_przepisu == przepisID && ps.Id_skladnika == skladnikId);
-                        if (DoUsuniecia != null)
+                        else
                         {
-                            Bz.PS.DeleteOnSubmit(DoUsuniecia);
+                            if(int.TryParse(skladnikId, out skladnikIdInt))
+                            {
+                                bool isAssociated = Bz.PS.Any(ps => ps.Id_przepisu == p.Id && ps.Id_skladnika == skladnikIdInt);
+                                if(int.TryParse(ilosc, out iloscInt) && isAssociated)
+                                {
+                                    PS doUsuniecia = new PS();
+                                    doUsuniecia = Bz.PS.FirstOrDefault(pu => pu.Id_przepisu == p.Id && pu.Id_skladnika == skladnikIdInt);
+
+                                    if (doUsuniecia != null)
+                                    {
+                                        Bz.PS.DeleteOnSubmit(doUsuniecia);
+                                    }
+                                }
+                            }
                         }
                     }
                 }
+
+                Bz.SubmitChanges();
+
 
                 if (upload.HasFile)
                 {

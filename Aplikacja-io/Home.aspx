@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
      <title>Strona Głowna</title>
-     <link rel="stylesheet" href="Styles5.css">
+     <link rel="stylesheet" href="Styles6.css">
 </head>
 <body>
     <form id="form1" runat="server">

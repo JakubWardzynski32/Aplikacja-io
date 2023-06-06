@@ -485,6 +485,7 @@ nav ul li {
     border-radius: 6px;
     padding-top: 3%;
     padding-left: 5%;
+    padding-right:5%;
 }
 .butEdit{
     position:absolute;
@@ -510,4 +511,23 @@ nav ul li {
     top: 10%;
     position: absolute;
     left:10%;
+}
+.butCancel {
+    position: absolute;
+    top: 95%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.butdelete {
+    position: absolute;
+    top: 4%;
+    right: 10%;
+    transform: translate(-50%, -50%);
+}
+.butBack {
+    position: absolute;
+    top: 4%;
+    right: 22%;
+    transform: translate(-50%, -50%);
 }

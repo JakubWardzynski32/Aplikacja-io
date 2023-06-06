@@ -9,8 +9,11 @@ namespace Aplikacja_io
 {
     public partial class Przepis1 : System.Web.UI.Page
     {
+        UsersDataContext Bz = new UsersDataContext(System.Configuration.ConfigurationManager.ConnectionStrings["UsersConnectionString"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             if (!IsPostBack)
             {
                 if (Request.QueryString["ID"] != null)
@@ -90,7 +93,43 @@ namespace Aplikacja_io
             int id = Convert.ToInt32(Request.QueryString["ID"]);
             Response.Redirect("RecipeEdit.aspx?ID=" + id);
         }
+
+        protected void ButtonUsunClick(object sender, EventArgs e)
+        {
+            if (Session["login"] != null)
+            {
+                int id = Convert.ToInt32(Request.QueryString["ID"]);
+                Przepis pr = Bz.Przepis.FirstOrDefault(p => p.Id == id);
+
+                foreach (Zdjecia z in Bz.Zdjecia)
+                {
+                    if (z.id_przepisu == id)
+                    {
+                        Bz.Zdjecia.DeleteOnSubmit(z);
+                    }
+                }
+
+                foreach (PS p in Bz.PS)
+                {
+                    if (p.Id_przepisu == id)
+                    {
+                        Bz.PS.DeleteOnSubmit(p);
+                    }
+                }
+                Bz.Przepis.DeleteOnSubmit(pr);
+                Bz.SubmitChanges();
+
+                Response.Redirect("Home.aspx");
+            }
+        }
+
+        protected void ButtonBackClick(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx");
+        }
     }
+
+  
 
     public class SkladnikInfo
     {

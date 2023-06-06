@@ -42,13 +42,13 @@ namespace Aplikacja_io
         protected global::System.Web.UI.WebControls.TextBox TextBoxDescription;
 
         /// <summary>
-        /// CheckBoxListS control.
+        /// repeaterSkladniki control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListS;
+        protected global::System.Web.UI.WebControls.Repeater repeaterSkladniki;
 
         /// <summary>
         /// upload control.
@@ -76,5 +76,14 @@ namespace Aplikacja_io
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonZat;
+
+        /// <summary>
+        /// ButtonCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonCancel;
     }
 }

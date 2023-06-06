@@ -35,11 +35,7 @@ namespace Aplikacja_io
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //if (Session["login"] != "test")
-            // {
-            //    Response.Redirect("Test.aspx");
-            // }
-            //Przepis p = new Przepis();
+            
 
             if (Session["login"] != null)
             {
@@ -60,8 +56,7 @@ namespace Aplikacja_io
 
         protected void ButtonSzukaj_Click(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
+            
                 PrzepisRepository przepisRepo = new PrzepisRepository();
 
                 searchQuery = TextBoxPrzepis.Text; 
@@ -79,7 +74,7 @@ namespace Aplikacja_io
 
                 repeaterPrzepisy.DataSource = przepisy;
                 repeaterPrzepisy.DataBind();
-            //}
+            
         }
 
         protected void Log_Out(object sender, EventArgs e)
