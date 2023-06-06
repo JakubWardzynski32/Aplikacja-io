@@ -12,7 +12,9 @@
         <div class="section">
             <div class="log-rej">
                 <ul>
-                    <li><a href="Test.aspx">Logowanie/Rejestracja</a></li>
+                    <li><a href="Test.aspx" style="font-size: 15px;">Logowanie/Rejestracja</a></li>
+                    <li></li><asp:Button ID="ButtonLogOut" runat="server" Text="Wyloguj" OnClick="Log_Out" CssClass="btn mt-2" /></li><br>
+                    <span style="font-size: 15px;"><asp:Literal ID="GreetingText" runat="server" Text=""></asp:Literal></span>
                 </ul>
              </div>
             <div class="header">

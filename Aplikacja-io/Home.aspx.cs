@@ -40,6 +40,11 @@ namespace Aplikacja_io
             //    Response.Redirect("Test.aspx");
             // }
             //Przepis p = new Przepis();
+
+            if (Session["login"] != null)
+            {
+                GreetingText.Text = "Witaj " + Session["login"].ToString() + "!";
+            }
             List<Przepis> przepisy;
             PrzepisRepository przepisRepo = new PrzepisRepository();
             przepisy = przepisRepo.GetPrzepisy();
@@ -70,6 +75,15 @@ namespace Aplikacja_io
                 repeaterPrzepisy.DataSource = przepisy;
                 repeaterPrzepisy.DataBind();
             //}
-    }
+        }
+
+        protected void Log_Out(object sender, EventArgs e)
+        {
+            if (Session["login"] != null)
+            {
+                Session.Clear();
+                Response.Redirect("Test.aspx");
+            }
+        }
     }
 }
