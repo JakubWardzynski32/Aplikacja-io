@@ -471,49 +471,6 @@ nav ul li {
     padding-left: 5%;
 }
 
-.textbox-style {
-    padding: 5px;
-    margin-top: 5px;
-    width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
 
 
 
-.checkboxes {
-    flex: 1;
-    width:20%;
-    top:40%;
-    position:absolute;
-    left:15%;
-}
-
-.textboxes {
-    overflow-y: auto;
-    width: 20%;
-    top: 40%;
-    position: absolute;
-    left: 40%;
-    flex: 1;
-}
-
-    .textboxes .textbox {
-        display: block;
-        margin-bottom: 10px;
-        width:10%;
-        height:20px;
-    }
-
-.skladnik-checkbox {
-    margin-right: 10px;
-}
-
-.ilosc-textbox {
-    width: 100px;
-    margin-left: 10px;
-}
-.filter{
-    width:20%;
-}

@@ -79,7 +79,7 @@
       <BrowseToURL>~/Recipe.aspx</BrowseToURL>
     </Content>
     <Content Include="RecipeEdit.aspx" />
-    <Content Include="Styles1.css" />
+    <Content Include="Styles5.css" />
     <Content Include="Test.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

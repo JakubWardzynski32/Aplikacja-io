@@ -186,9 +186,11 @@ namespace Aplikacja_io
                     Bz.SubmitChanges();
                 }
 
-                //Bz.Skladnik.InsertOnSubmit(skladnik);
-                //Bz.PS.InsertOnSubmit(pS);
-           
+            //Bz.Skladnik.InsertOnSubmit(skladnik);
+            //Bz.PS.InsertOnSubmit(pS);
+            Response.Redirect("Przepis.aspx?ID=" + p.Id);
+
+
         }
     }
 }

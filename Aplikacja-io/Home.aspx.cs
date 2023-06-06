@@ -44,6 +44,11 @@ namespace Aplikacja_io
             if (Session["login"] != null)
             {
                 GreetingText.Text = "Witaj " + Session["login"].ToString() + "!";
+                ButtonLogOut.Visible = true;
+            }
+            else
+            {
+                ButtonLogOut.Visible = false;
             }
             List<Przepis> przepisy;
             PrzepisRepository przepisRepo = new PrzepisRepository();

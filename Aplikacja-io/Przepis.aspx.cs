@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,44 +9,28 @@ namespace Aplikacja_io
 {
     public partial class Przepis1 : System.Web.UI.Page
     {
-        UsersDataContext Bz = new UsersDataContext(System.Configuration.ConfigurationManager.ConnectionStrings["UsersConnectionString"].ConnectionString);
-        private Przepis p = new Przepis();
-        private int ilosc;
-        private List<Skladnik> skladniki = new List<Skladnik>();
-        private List<Zdjecia> zdjecia = new List<Zdjecia>();
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 if (Request.QueryString["ID"] != null)
                 {
-                    //pobranie id z adresu wyszukiwania, znalezienie przepisu o podanym id i zmiana tytułu strony na nazwę przepisu
                     int przepisID = Convert.ToInt32(Request.QueryString["ID"]);
-                    getPrzepis(przepisID);
-                    Page.Title = p.Nazwa;
+                    Przepis p = GetPrzepis(przepisID);
 
                     if (p != null)
                     {
-                        // Przypisz wartości do odpowiednich Literali
                         LiteralNazwa.Text = p.Nazwa;
                         LiteralOpis.Text = p.Opis;
-                        //LiteralIlosc.Text = ilosc.ToString();
 
-                        RepeaterSkladniki.DataSource = skladniki;
+                        List<SkladnikInfo> skladnikiInfo = GetSkladniki(przepisID);
+                        RepeaterSkladniki.DataSource = skladnikiInfo;
                         RepeaterSkladniki.DataBind();
 
-
+                        List<Zdjecia> zdjecia = GetZdjecia(przepisID);
                         RepeaterZdjecia.DataSource = zdjecia;
                         RepeaterZdjecia.DataBind();
-
                     }
-
-                    // Pobierz informacje o przepisie na podstawie przepisID z bazy danych
-                    // i wyświetl je na stronie
-                    // ...
-
                 }
                 else
                 {
@@ -55,39 +38,41 @@ namespace Aplikacja_io
                 }
             }
         }
-        protected void getPrzepis(int id)
+
+        protected Przepis GetPrzepis(int id)
         {
-            foreach (Przepis ps in Bz.Przepis)
+            using (UsersDataContext Bz = new UsersDataContext(System.Configuration.ConfigurationManager.ConnectionStrings["UsersConnectionString"].ConnectionString))
             {
-                if (ps.Id == id)
+                return Bz.Przepis.FirstOrDefault(p => p.Id == id);
+            }
+        }
+
+        protected List<SkladnikInfo> GetSkladniki(int przepisID)
+        {
+            List<SkladnikInfo> skladnikiInfo = new List<SkladnikInfo>();
+
+            using (UsersDataContext Bz = new UsersDataContext(System.Configuration.ConfigurationManager.ConnectionStrings["UsersConnectionString"].ConnectionString))
+            {
+                var psList = Bz.PS.Where(ps => ps.Id_przepisu == przepisID);
+
+                foreach (var ps in psList)
                 {
-                    p = ps;
-                    break;
+                    SkladnikInfo skladnikInfo = new SkladnikInfo();
+                    skladnikInfo.Nazwa = ps.Skladnik.Nazwa;
+                    skladnikInfo.Ilosc = ps.Ilosc;
+                    skladnikInfo.Opis = ps.Skladnik.Opis; 
+                    skladnikiInfo.Add(skladnikInfo);
                 }
             }
 
-            foreach (PS i in Bz.PS)
-            {
-                if (i.Id_przepisu == id)
-                {
-                    ilosc = i.Ilosc;
+            return skladnikiInfo;
+        }
 
-                    foreach (Skladnik sk in Bz.Skladnik)
-                    {
-                        if (i.Id_skladnika == sk.Id)
-                        {
-                            skladniki.Add(sk);
-                        }
-                    }
-                }
-            }
-
-            foreach (Zdjecia z in Bz.Zdjecia)
+        protected List<Zdjecia> GetZdjecia(int przepisID)
+        {
+            using (UsersDataContext Bz = new UsersDataContext(System.Configuration.ConfigurationManager.ConnectionStrings["UsersConnectionString"].ConnectionString))
             {
-                if (z.id_przepisu == id)
-                {
-                    zdjecia.Add(z);
-                }
+                return Bz.Zdjecia.Where(z => z.id_przepisu == przepisID).ToList();
             }
         }
 
@@ -105,6 +90,12 @@ namespace Aplikacja_io
             int id = Convert.ToInt32(Request.QueryString["ID"]);
             Response.Redirect("RecipeEdit.aspx?ID=" + id);
         }
+    }
 
+    public class SkladnikInfo
+    {
+        public string Nazwa { get; set; }
+        public int Ilosc { get; set; }
+        public string Opis { get; set; }
     }
 }

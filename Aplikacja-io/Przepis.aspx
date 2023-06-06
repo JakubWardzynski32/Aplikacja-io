@@ -5,7 +5,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title> </title>
-    <link rel="stylesheet" href="Styles1.css">
+    <link rel="stylesheet" href="Styles5.css">
 </head>
 <body>
     <form id="form1" runat="server">
@@ -13,14 +13,15 @@
                 <asp:Literal runat="server" ID="LiteralNazwa"></asp:Literal>
             </div>
             <div>
-                <div class="headerIngrediants">
+                
+                <div class="ingrediants">
+                    <div class="headerIngrediants">
                     Składniki:
                 </div>
-                <div class="ingrediants">
                     <ul>
                         <asp:Repeater runat="server" ID="RepeaterSkladniki">
                             <ItemTemplate>
-                                <li><%# Eval("Nazwa") %> <%# Eval("Nazwa") %></li>
+                                <li><%# Eval("Nazwa") %> - <%# Eval("Ilosc") %> (<%# Eval("Opis") %>)</li>
                             </ItemTemplate>
                         </asp:Repeater>
                     </ul>
@@ -40,7 +41,7 @@
                     <asp:Literal runat="server" ID="LiteralOpis"></asp:Literal>
                 </div>               
             </div>
-        <div>
+        <div class="butEdit">
             <asp:Button ID="ButtonEdit" runat="server" Text="Edytuj Przepis" onclick="ButtonEditClick" CssClass="btn mt-4"/>
         </div>
     </form>
