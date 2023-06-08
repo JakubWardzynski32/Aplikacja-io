@@ -90,8 +90,11 @@ namespace Aplikacja_io
 
         protected void ButtonEditClick(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(Request.QueryString["ID"]);
-            Response.Redirect("RecipeEdit.aspx?ID=" + id);
+            if (Session["login"] != null)
+            {
+                int id = Convert.ToInt32(Request.QueryString["ID"]);
+                Response.Redirect("RecipeEdit.aspx?ID=" + id);
+            }
         }
 
         protected void ButtonUsunClick(object sender, EventArgs e)

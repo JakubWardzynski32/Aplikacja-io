@@ -157,14 +157,13 @@ namespace Aplikacja_io
                         int iloscInt;
                         int skladnikIdInt;
 
-                        bool isChecked = checkBox.Checked;
-
                         if (checkBox.Checked)
                         {
                             
                             if (int.TryParse(skladnikId, out skladnikIdInt))
                             {
-                                bool isAssociated = Bz.PS.Any(ps => ps.Id_przepisu == p.Id && ps.Id_skladnika == skladnikIdInt);
+
+                                bool isAssociated = Bz.PS.Any(ps => ps.Id_przepisu == ExistingPrzepis.Id && ps.Id_skladnika == skladnikIdInt);
                                 if (int.TryParse(ilosc, out iloscInt) && !isAssociated)
                                 {
 
@@ -174,7 +173,15 @@ namespace Aplikacja_io
                                     pS.Przepis = ExistingPrzepis;
                                     pS.Ilosc = iloscInt;
                                     Bz.PS.InsertOnSubmit(pS);
-
+                                    
+                                }
+                                else if(int.TryParse(ilosc, out iloscInt))
+                                {
+                                    PS editIlosc = Bz.PS.FirstOrDefault(ps => ps.Id_przepisu == ExistingPrzepis.Id && ps.Id_skladnika == skladnikIdInt);
+                                    if(editIlosc.Ilosc != iloscInt)
+                                    {
+                                        editIlosc.Ilosc = iloscInt;
+                                    }
                                 }
 
                             }
@@ -183,15 +190,16 @@ namespace Aplikacja_io
                         {
                             if(int.TryParse(skladnikId, out skladnikIdInt))
                             {
-                                bool isAssociated = Bz.PS.Any(ps => ps.Id_przepisu == p.Id && ps.Id_skladnika == skladnikIdInt);
-                                if(int.TryParse(ilosc, out iloscInt) && isAssociated)
+                                bool isAssociated = Bz.PS.Any(ps => ps.Id_przepisu == ExistingPrzepis.Id && ps.Id_skladnika == skladnikIdInt);
+                                if(isAssociated)
                                 {
-                                    PS doUsuniecia = new PS();
-                                    doUsuniecia = Bz.PS.FirstOrDefault(pu => pu.Id_przepisu == p.Id && pu.Id_skladnika == skladnikIdInt);
+                                    PS doUsuniecia = Bz.PS.FirstOrDefault(pu => pu.Id_przepisu == ExistingPrzepis.Id && pu.Id_skladnika == skladnikIdInt);
 
                                     if (doUsuniecia != null)
                                     {
                                         Bz.PS.DeleteOnSubmit(doUsuniecia);
+                                        //Bz.SubmitChanges();
+
                                     }
                                 }
                             }
@@ -204,6 +212,10 @@ namespace Aplikacja_io
 
                 if (upload.HasFile)
                 {
+                    Zdjecia doUsuniecia = Bz.Zdjecia.FirstOrDefault(z => z.id_przepisu == ExistingPrzepis.Id);
+                    Bz.Zdjecia.DeleteOnSubmit(doUsuniecia);
+                    Bz.SubmitChanges();
+
                     byte[] imageBytes;
 
                     using (BinaryReader reader = new BinaryReader(upload.PostedFile.InputStream))
@@ -216,9 +228,9 @@ namespace Aplikacja_io
                     zdj.zdjecie = new System.Data.Linq.Binary(imageBytes); // Konwersja na typ Binary
 
                     Bz.Zdjecia.InsertOnSubmit(zdj);
+                    Bz.SubmitChanges();
                 }
 
-                Bz.SubmitChanges();
                 Response.Redirect("Przepis.aspx?ID=" + ExistingPrzepis.Id);
             }
         }
