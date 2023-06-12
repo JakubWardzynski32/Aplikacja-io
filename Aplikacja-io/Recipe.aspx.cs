@@ -47,6 +47,7 @@ namespace Aplikacja_io
                     repeaterSkladniki.DataBind();
                     
 
+
                     }
                 else
                 {

@@ -250,15 +250,16 @@ nav ul li {
 }
 
 .log-rej {
-    float: right;
     padding: 0;
     width: 10%;
     font-size: 10px;
+    position:absolute;
+    right:3%;
 }
 .AddBut {
     position: absolute;
     top: 95%;
-    left: 50%;
+    left: 59%;
     transform: translate(-50%, -50%);
 }
 
@@ -285,7 +286,16 @@ nav ul li {
     padding-top: 13px;
     padding-bottom: 13px;
     width: 60%;
+    font-family: 'Poppins', sans-serif;
 }
+    .form-style2::-webkit-scrollbar {
+        width: 15px;
+        background-color: #2b2e38;
+    }
+
+    .form-style2::-webkit-scrollbar-thumb {
+        background-color: #ffeba7;
+    }
 
 .container2 {
     top:0%;
@@ -341,8 +351,9 @@ nav ul li {
     line-height: 22px;
     letter-spacing: 0.5px;
     outline: none;
-    top:40%;
-    position:absolute;
+    top: 40%;
+    position: absolute;
+    overflow: auto;
 }
 
     .listofigrediants::-webkit-scrollbar {
@@ -465,19 +476,19 @@ nav ul li {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transform: scale(0.9); /* Możesz dostosować skalę według własnych preferencji */
-        transform-origin: top left; /* Możesz dostosować punkt skalowania według własnych preferencji */
+        transform: scale(0.9);
+        transform-origin: top left;
         border-radius: 6px;
     }
 
 .descriptonText{
     position:absolute;
-    top:52%;
+    top:56%;
     left:60%;
 }
 .description {
     position: absolute;
-    top: 58%;
+    top: 62%;
     background-color: #2b2e38;
     width: 43%;
     left: 40%;
@@ -496,12 +507,19 @@ nav ul li {
     background-color: #2b2e38;
     border: 1px solid #ffeba7;
     border-radius: 4px;
-    margin-left: 20px;
+    right: 43%;
     color: white;
     font-family: 'Poppins', sans-serif;
+    position:absolute;
 }
 .form-style5 {
     margin-left: 20px;
+    width:30px;
+}
+
+.form-style6{
+    position:absolute;
+    left:59%;
 }
 
 .descriptiondiv {
@@ -515,14 +533,14 @@ nav ul li {
 .butCancel {
     position: absolute;
     top: 95%;
-    left: 30%;
+    left: 38%;
     transform: translate(-50%, -50%);
 }
 
 .butdelete {
     position: absolute;
     top: 4%;
-    right: 10%;
+    right: 10.5%;
     transform: translate(-50%, -50%);
 }
 .butBack {
@@ -531,3 +549,8 @@ nav ul li {
     right: 22%;
     transform: translate(-50%, -50%);
 }
+
+.nameofrecipe2{
+    height:40%;
+}
+

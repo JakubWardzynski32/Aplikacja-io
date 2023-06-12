@@ -29,28 +29,36 @@ namespace Aplikacja_io
         {
             if (!IsPostBack)
             {
-                if (Request.QueryString["ID"] != null)
+                if (Session["login"] != null)
                 {
-                    int przepisID = Convert.ToInt32(Request.QueryString["ID"]);
-                    GetPrzepis(przepisID);
+                    if (Request.QueryString["ID"] != null)
+                    {
+                        int przepisID = Convert.ToInt32(Request.QueryString["ID"]);
+                        GetPrzepis(przepisID);
 
-                    Page.Title = "Edycja" + p.Nazwa;
+                        Page.Title = "Edycja" + p.Nazwa;
 
-                    TextBoxName.Text = p.Nazwa;
-                    TextBoxDescription.Text = p.Opis;
+                        TextBoxName.Text = p.Nazwa;
+                        TextBoxDescription.Text = p.Opis;
 
 
-                    List<Skladnik> skladnikiwypis;
-                    SkladnikRepository skladnikRepo = new SkladnikRepository();
-                    skladnikiwypis = skladnikRepo.GetSkladniki();
-                    repeaterSkladniki.DataSource = skladnikiwypis;
-                    repeaterSkladniki.DataBind();
+                        List<Skladnik> skladnikiwypis;
+                        SkladnikRepository skladnikRepo = new SkladnikRepository();
+                        skladnikiwypis = skladnikRepo.GetSkladniki();
+                        repeaterSkladniki.DataSource = skladnikiwypis;
+                        repeaterSkladniki.DataBind();
 
+                    }
+                    else
+                    {
+                        Response.Redirect("Home.aspx");
+                    }
                 }
                 else
                 {
-                    Response.Redirect("Home.aspx");
+                    Response.Redirect("Test.aspx");
                 }
+                    
             }
         }
 

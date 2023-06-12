@@ -19,8 +19,8 @@
                         <div class="nameofrecipe">
                             <asp:TextBox ID="TextBoxName" placeholder="Nazwa" runat="server" CssClass="form-style2"></asp:TextBox>
                         </div>
-                         <div class="nameofrecipe">
-                            <asp:TextBox ID="TextBoxDescription" placeholder="Opis" runat="server" CssClass="form-style2"></asp:TextBox>
+                         <div class="nameofrecipe2">
+                            <asp:TextBox ID="TextBoxDescription" placeholder="Opis" TextMode="MultiLine" Rows="5" runat="server" CssClass="form-style2"></asp:TextBox>
                         </div> 
                        
                         <div class="heading3">
@@ -31,9 +31,9 @@
                             <asp:Repeater ID="repeaterSkladniki" runat="server" OnItemDataBound="repeaterSkladniki_ItemDataBound"  >
                            <ItemTemplate>
                                <asp:CheckBox ID="CheckBox" Text='<%# Eval("Nazwa") %>'  runat="server" />
-                               <asp:Label ID="Label" runat="server" Text="" Visible="false" CssClass="form-style5"></asp:Label>
+                               <asp:Label ID="Label" runat="server" Text="" Visible="false" ></asp:Label>
                                <asp:TextBox ID="TextBox" TextMode="Number" runat="server" CssClass="form-style4"></asp:TextBox>
-                               <asp:Label ID="LabelJed" runat="server" Text='<%# Eval("opis") %>' ></asp:Label>
+                               <asp:Label ID="LabelJed" runat="server" CssClass="form-style6" Text='<%# Eval("opis") %>' ></asp:Label>
                             <br />
                          </ItemTemplate>
                         </asp:Repeater>
@@ -52,7 +52,7 @@
                         </div>
                         
         <div class="AddBut">
-             <asp:Button ID="ButtonZat" runat="server" Text="Dodaj" OnClick="ButtonZat_Click" class="btn mt-4"/>
+             <asp:Button ID="ButtonZat" runat="server" Text="    Dodaj      " OnClick="ButtonZat_Click" class="btn mt-4"/>
         </div>
                         <div class="butCancel">
                         <asp:Button ID="ButtonCancel" runat="server" Text="Odrzuć Zmiany" OnClick="ButtonCancel_Click" class="btn mt-4" />
